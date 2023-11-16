@@ -1,5 +1,52 @@
 .appBar{
-    background-color: aqua;
-    height: 50px;
+    background-color: var(--main-color);
+    height: 90px;
     width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+.headerMenuItems{
+    display: flex;
+    align-items: center;
+    padding-right: 50px;
+}
+.menuItem{
+    margin: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 7px 15px;
+}
+.menuItem:hover{
+    background-color: var(--active);
+    padding: 7px 15px;
+    border-radius: 50px;
+}
+.menuItemActive{
+    background-color: var(--active);
+    padding: 7px 15px;
+    border-radius: 50px;
+}
+.headerLeftItem{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+.headerAuth{
+    margin-left: 70px;
+    background-color: var(--sub-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--text-color);
+}
+.headerAuth:hover{
+    background-color: var(--hover-sub-color);
+}
+.headerLogo{
+    width: 70px;
+    display: flex;
+    align-items: center;
 }
