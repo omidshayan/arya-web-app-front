@@ -9,6 +9,11 @@
   --border-color: #374151;
   --text-color: #E0E2E7;
   --active: #1F2937;
+  --shadow: 5px 5px 10px #0c0f16,
+  -5px -5px 10px #181f2c;
+  --gradient: linear-gradient(145deg, #111827, #131923);
+  --shadow-hover:  inset 5px 5px 7px #0c1017,
+  inset -5px -5px 7px #181e2b;
 }
 body{
   font-family: 'vazir';

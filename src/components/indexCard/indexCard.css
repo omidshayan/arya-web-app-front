@@ -1,0 +1,33 @@
+.cardSection {
+    width: 60%;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: #121721;
+    box-shadow: inset 5px 5px 7px #0c1017,
+        inset -5px -5px 7px #181e2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardItem{
+    width: 28%;
+    height: 200px;
+    border-radius: 26px;
+    background: var(--gradient);
+    box-shadow: var(--shadow);
+    text-align: center;
+    cursor: pointer;
+    margin: 20px;
+}
+.cardIcon{
+    margin: 20px 0;
+    font-size: 80px;
+}
+.cardTitle{
+    margin-top: 7px;
+    font-weight: bold;
+}
+.cardItem:hover{
+    box-shadow: var(--shadow-hover);
+}

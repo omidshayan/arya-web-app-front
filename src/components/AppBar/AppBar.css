@@ -16,16 +16,19 @@
     cursor: pointer;
     transition: 0.2s;
     padding: 7px 15px;
+    background: var(--gradient);
+    box-shadow: var(--shadow);
+    border-radius: 50px;
+    color: var(--sub-color);
 }
 .menuItem:hover{
-    background-color: var(--active);
+    box-shadow: var(--shadow-hover);
     padding: 7px 15px;
     border-radius: 50px;
 }
 .menuItemActive{
-    background-color: var(--active);
-    padding: 7px 15px;
-    border-radius: 50px;
+    box-shadow: var(--shadow-hover);
+    color: aliceblue;
 }
 .headerLeftItem{
     display: flex;
@@ -34,30 +37,40 @@
 }
 .headerAuth{
     margin-left: 70px;
-    background-color: var(--sub-color);
+    background: var(--gradient);
+    box-shadow: var(--shadow);
     padding: 10px 20px;
     border-radius: 50px;
     font-size: 16px;
     cursor: pointer;
     transition: 0.2s;
     color: var(--text-color);
+    
 }
 .headerAuth:hover{
-    background-color: var(--hover-sub-color);
+    box-shadow: var(--shadow-hover);
 }
 .headerLogo{
     width: 70px;
     display: flex;
     align-items: center;
 }
+.hamberIconSlider{
+    display: none;
+}
 .hamberIcon{
     display: none;
-    margin: 33px 60px;
-    cursor: pointer;
 }
 @media (max-width: 1024px){
+    .hamberIconSlider{
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
     .hamberIcon{
      display: block;
+     cursor: pointer;
+     padding: 4px;
     }
     .headerMenuItems{
         display: none;
@@ -68,6 +81,6 @@
 }
 @media(max-width: 500px){
     .hamberIcon{
-        margin: 33px;
+        margin: 0 0 !important;
     }
 }

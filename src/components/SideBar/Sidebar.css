@@ -5,29 +5,34 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    display: none;
+    z-index: 2;
+    transition: all .2s ease-in-out;
+    opacity: 0;
     visibility: hidden;
 }
+.overlayActive{
+    opacity: 1;
+    visibility: visible;
+}
 .sidebar{
-    width: 320px;
+    width: 260px;
     height: 100vh;
     background-color: var(--main-color);
     border-left: 1px solid var(--border-color);
     position: absolute;
     top: 0;
     z-index: 9;
-    display: none;
-    visibility: hidden;
+    transform: translateX(100%);
+    transition: all .3s ease-in-out;
 }
 .sidebarActive{
-    display: block;
-    visibility: visible;
+    transform: translateX(0%);
 }
 .topSidebar{
     display: flex;
     justify-content: space-between;
     margin: 20px;
+    align-items: center;
 }
 .logoSidebar img{
     width: 70px;

@@ -1,9 +1,11 @@
-import React, {useState} from "react";
 import "./AppBar.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import Sidebar from "../SideBar/Sidebar";
+import { useState } from "react";
 
 export default function AppBar() {
-  const [showSidebar, setShowSidebar] = useState(false)
+
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <>
@@ -14,8 +16,8 @@ export default function AppBar() {
           <div className="menuItem">home</div>
         </div>
 
-        <div className="hamberIcon">
-            <MenuIcon />
+        <div className="hamberIconSlider" >
+            <MenuIcon  className="hamberIcon" onClick={() => setShowSidebar(true)}/>
         </div>
 
         <div className="headerLeftItem">
@@ -27,6 +29,7 @@ export default function AppBar() {
           </a>
         </div>
       </div>
+      <Sidebar showSlider={showSidebar} closeSlider={setShowSidebar}/>
     </>
   );
 }
