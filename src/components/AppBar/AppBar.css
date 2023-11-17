@@ -50,3 +50,24 @@
     display: flex;
     align-items: center;
 }
+.hamberIcon{
+    display: none;
+    margin: 33px 60px;
+    cursor: pointer;
+}
+@media (max-width: 1024px){
+    .hamberIcon{
+     display: block;
+    }
+    .headerMenuItems{
+        display: none;
+    }
+    .headerAuth{
+        display: none;
+    }
+}
+@media(max-width: 500px){
+    .hamberIcon{
+        margin: 33px;
+    }
+}

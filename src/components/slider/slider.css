@@ -21,6 +21,11 @@
   }
 
   .sliderImg{
-    width: 100% !important;
+    width: 350px !important;
   }
-  
+
+  @media (max-width: 500px){
+    .sliderImg{
+      width: 100% !important;
+    }
+}

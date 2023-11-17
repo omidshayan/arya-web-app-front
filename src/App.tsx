@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
+import MainComponents from './components/MainComponents/MainComponents';
 
-import AppBar from './components/AppBar/AppBar';
-import Slider from './components/slider/Slider';
+
 
 function App() {
 
   return (
     <>
-     <AppBar />
-     <Slider />
+      <MainComponents />
     </>
   );
 }

@@ -1,0 +1,40 @@
+.overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(5, 5, 5, 0.603);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+    visibility: hidden;
+}
+.sidebar{
+    width: 320px;
+    height: 100vh;
+    background-color: var(--main-color);
+    border-left: 1px solid var(--border-color);
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    display: none;
+    visibility: hidden;
+}
+.sidebarActive{
+    display: block;
+    visibility: visible;
+}
+.topSidebar{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.logoSidebar img{
+    width: 70px;
+}
+.closeSidebar{
+    cursor: pointer;
+}
+.closeSidebar:hover{
+    color: red;
+}
