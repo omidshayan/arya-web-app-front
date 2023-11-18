@@ -83,4 +83,10 @@
     .hamberIcon{
         margin: 0 0 !important;
     }
+    .headerLogo{
+        width: 50px;
+    }
+    .headerLeftItem{
+        padding-left: 15px;
+    }
 }

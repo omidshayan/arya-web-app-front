@@ -7,7 +7,7 @@
   --sub-color: #4338CA;
   --hover-sub-color: #3528c5;
   --border-color: #374151;
-  --text-color: #E0E2E7;
+  --text-color: #bebebe;
   --active: #1F2937;
   --shadow: 5px 5px 10px #0c0f16,
   -5px -5px 10px #181f2c;
@@ -28,4 +28,8 @@ ul li{
 }
 a{
   text-decoration: none;
+}
+.border{
+  width: 90%;
+  border: 1px solid var(--border-color);
 }

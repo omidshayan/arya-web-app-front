@@ -39,7 +39,35 @@
 }
 .closeSidebar{
     cursor: pointer;
+    transition: 0.2s;
 }
 .closeSidebar:hover{
     color: red;
+}
+
+/* sidebar itmes */
+.sidebarItems{
+    margin-right: 15px;
+}
+.siebarItem{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin: 12px 0;
+}
+.sidebarIcon{
+    color: var(--text-color);
+    font-size: 18px;
+    margin-left: 5px;
+}
+.sidebarName{
+    color: var(--text-color);
+}
+.authSidebar{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.authSidebar a{
+    color: var(--text-color);
 }

@@ -20,6 +20,7 @@
     cursor: pointer;
     margin: 20px;
 }
+
 .cardIcon{
     margin: 20px 0;
     font-size: 80px;
@@ -30,4 +31,53 @@
 }
 .cardItem:hover{
     box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 1200px) {
+    .cardSection{
+        width: 90%;
+    }
+}
+@media (max-width: 800px) {
+    .cardItem{
+        width: 20%;
+        height: 170px;
+    }
+    .cardIcon{
+        margin: 20px 0;
+        font-size: 60px;
+    }
+}
+@media (max-width: 700px) {
+    .cardSection{
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cardItem{
+        width: 40%;
+        height: 170px;
+    }
+}
+@media (max-width: 700px) {
+    .cardSection{
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    .cardItem{
+        width: 40%;
+        margin: 10px;
+        height: 90px;
+    }
+    .cardIcon{
+        margin: 20px 0;
+        font-size: 35px;
+        margin: 5px;
+    }
+    .cardTitle{
+        font-size: 15px;
+        margin: 0;
+    }
 }
