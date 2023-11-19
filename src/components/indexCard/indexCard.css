@@ -4,8 +4,7 @@
     padding: 30px;
     border-radius: 10px;
     background: #121721;
-    box-shadow: inset 5px 5px 7px #0c1017,
-        inset -5px -5px 7px #181e2b;
+    box-shadow: var(--active-shadow);
     display: flex;
     align-items: center;
     justify-content: center;

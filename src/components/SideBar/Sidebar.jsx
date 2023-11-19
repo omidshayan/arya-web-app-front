@@ -4,6 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { MdRoundaboutRight  } from "react-icons/md";
 import { IoIosContact } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 
 
@@ -19,12 +20,12 @@ export default function Sidebar({showSlider, closeSlider}) {
             </div>
         <hr className='border'/>
           <div className="sidebarItems">
-              <a href="#">
+              <Link to={'/'}>
                 <div className="siebarItem">
                   <FaHome className='sidebarIcon'/>
                   <span className='sidebarName'>صفحه اصلی</span>
                 </div>
-              </a>
+              </Link>
               <a href="#">
                 <div className="siebarItem">
                   <MdCategory className='sidebarIcon'/>
@@ -46,7 +47,7 @@ export default function Sidebar({showSlider, closeSlider}) {
           </div>
           <hr className="border" />
           <div className="authSidebar">
-            <a href="#">ورود / ثبت نام</a>
+            <Link to={'/login'} href="#">ورود / ثبت نام</Link>
           </div>
         </div>
     </>

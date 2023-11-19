@@ -2,6 +2,7 @@ import "./AppBar.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "../SideBar/Sidebar";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function AppBar() {
 
@@ -11,9 +12,9 @@ export default function AppBar() {
     <>
       <div className="appBar">
         <div className="headerMenuItems">
-          <div className="menuItem menuItemActive">home</div>
-          <div className="menuItem">home</div>
-          <div className="menuItem">home</div>
+          <Link to={'/'} className="menuItem menuItemActive">home</Link>
+          <Link to={'/'} className="menuItem">home</Link>
+          <Link to={'/'} className="menuItem">home</Link>
         </div>
 
         <div className="hamberIconSlider" >
@@ -21,12 +22,14 @@ export default function AppBar() {
         </div>
 
         <div className="headerLeftItem">
-          <a href="#" className="headerAuth">
+          <Link to={'/login'} className="headerAuth">
             ورود / ثبت نام
-          </a>
-          <a href="#">
+          </Link>
+
+          <Link to={'/'}>
             <img src="img/logo.png" alt="" className="headerLogo" />
-          </a>
+          </Link>
+
         </div>
       </div>
       <Sidebar showSlider={showSidebar} closeSlider={setShowSidebar}/>
