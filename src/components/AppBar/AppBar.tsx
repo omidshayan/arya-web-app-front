@@ -4,7 +4,14 @@ import Sidebar from "../SideBar/Sidebar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
+import './../../i18n';
+import { useTranslation } from 'react-i18next';
+
+
+
 export default function AppBar() {
+  const {t} = useTranslation();
 
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -12,7 +19,7 @@ export default function AppBar() {
     <>
       <div className="appBar">
         <div className="headerMenuItems">
-          <Link to={'/'} className="menuItem menuItemActive">home</Link>
+          <Link to={'/'} className="menuItem menuItemActive">{t('homePage')}</Link>
           <Link to={'/'} className="menuItem">home</Link>
           <Link to={'/'} className="menuItem">home</Link>
         </div>
@@ -23,7 +30,7 @@ export default function AppBar() {
 
         <div className="headerLeftItem">
           <Link to={'/login'} className="headerAuth">
-            ورود / ثبت نام
+            {t('loginRegister')}
           </Link>
 
           <Link to={'/'}>

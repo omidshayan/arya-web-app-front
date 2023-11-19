@@ -1,0 +1,25 @@
+.selectLang{
+    width: 80%;
+    height: 40px;
+    margin-top: 11px;
+    display: flex;
+    margin-right: 5px;
+    align-items: center;
+}
+.changeLangTitle{
+    margin: 0 0 0 5px;
+}
+.selectTagLang{
+    width: 80px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    outline: none;
+    height: 30px;
+    border-radius: 10px;
+    color: var(--text-color);
+}
+.optionLang{
+    font-size: 20px;
+    background-color: var(--sub-color);
+    margin: 10px !important;
+}

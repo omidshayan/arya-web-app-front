@@ -9,14 +9,20 @@ import "swiper/css/pagination";
 
 import "./homeSlider.css";
 
+import './../../i18n';
+import { useTranslation } from 'react-i18next';
+
+
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 export default function HomeSlider() {
+  const {t} = useTranslation();
+
   return (
     <>
       <div className="homeSlider">
-        <div className="sliderTitle">دسته بندی های محبوب</div>
+        <div className="sliderTitle">{t('favoriteCate')}</div>
         <Swiper
                 autoplay={{
                   delay: 2500,
