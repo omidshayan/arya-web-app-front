@@ -1,0 +1,13 @@
+.bottomNavigation{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+}
+.navigationItems{
+    background-color: #374151e8 !important;
+}
+.bottomNavigationItem{
+    color: var(--text-color) !important;
+    font-weight: bold;
+}

@@ -3,6 +3,7 @@ import './App.css';
 import MainComponents from './components/MainComponents/MainComponents';
 import IndexCard from './components/indexCard/IndexCard';
 import HomeSlider from './components/homeSlider/HomeSlider';
+import BottomNavigationMenu from './components/bottomNavigationMenu/BottomNavigationMenu';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       {/* <MainSearchBox /> */}
       <IndexCard />
       <HomeSlider />
+      <BottomNavigationMenu />
     </>
   );
 }
