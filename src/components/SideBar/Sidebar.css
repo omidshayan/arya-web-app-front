@@ -81,6 +81,8 @@
 }
 .toggle {
     --size: 21px;
+    background-color: rgb(56, 54, 54);
+    padding: 5px !important;
     appearance: none;
     outline: none;
     cursor: pointer;
@@ -113,3 +115,4 @@
 .toggle:checked ~ .background {
     --bg: white;
 }
+

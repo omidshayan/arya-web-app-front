@@ -78,6 +78,9 @@
     .headerAuth{
         display: none;
     }
+    .toggleHeader{
+        display: none;
+    }
 }
 @media(max-width: 500px){
     .hamberIcon{

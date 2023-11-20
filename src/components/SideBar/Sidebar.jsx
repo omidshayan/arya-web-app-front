@@ -16,12 +16,13 @@ export default function Sidebar({ showSlider, closeSlider }) {
 
   // start handle Theme Mode
   const [theme, setTheme] = useState(false);
+  
   const handle = () => {
     setTheme(!theme);
   };
   useEffect(() => {
     if (theme === true) {
-      document.body.classList.toggle("lightMode");
+      document.body.classList.add("lightMode");
     } else {
       document.body.classList.remove("lightMode");
     }

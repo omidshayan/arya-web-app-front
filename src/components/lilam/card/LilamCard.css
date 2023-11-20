@@ -1,0 +1,13 @@
+.LilamCard{
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.LilamCardItem{
+    width: 400px;
+    height: 200px;
+    background-color: red;
+    margin: 10px;
+    
+}
