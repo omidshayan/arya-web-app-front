@@ -3,7 +3,8 @@
     margin: 30px auto;
     padding: 30px;
     border-radius: 10px;
-    background: #121721;
+    /* background: #121721; */
+    background: var(--gradient);
     box-shadow: var(--active-shadow);
     display: flex;
     align-items: center;
@@ -29,7 +30,7 @@
     font-weight: bold;
 }
 .cardItem:hover{
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--active-shadow);
 }
 
 @media (max-width: 1200px) {

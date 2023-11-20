@@ -18,6 +18,21 @@
   --active-shadow: inset 5px 5px 7px #0c1017,
   inset -5px -5px 7px #181e2b;
 }
+.lightMode{
+  --main-color: #E6E7EE;
+  --sub-color: #4F46E5;
+  --hover-sub-color: #3528c5;
+  --border-color: #374151;
+  --text-color: #272626;
+  --active: #1F2937;
+
+  --shadow: 5px 5px 13px #a6a6ab,
+  -5px -5px 13px #ffffff;
+  --gradient: linear-gradient(145deg, #E6E7EE, #E6E7EE);
+  --active-shadow:  inset 5px 5px 8px #aaabb0,
+  inset -5px -5px 8px #ffffff;
+}
+
 body{
   font-family: 'vazir';
   margin: 0;
@@ -26,6 +41,7 @@ body{
   color: var(--text-color);
   direction: rtl;
 }
+
 ul li{
   list-style: none;
 }

@@ -3,6 +3,14 @@
     bottom: 0;
     width: 100%;
     z-index: 3;
+    display: none;
+    visibility: hidden;
+}
+@media (max-width: 990px){
+    .bottomNavigation{
+        display: block;
+        visibility: visible;
+    }
 }
 .navigationItems{
     background-color: #374151e8 !important;

@@ -22,13 +22,13 @@
     color: var(--sub-color);
 }
 .menuItem:hover{
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--active-shadow);
     padding: 7px 15px;
     border-radius: 50px;
 }
 .menuItemActive{
-    box-shadow: var(--shadow-hover);
-    color: aliceblue;
+    box-shadow: var(--active-shadow);
+    color: var(--text-color);
 }
 .headerLeftItem{
     display: flex;
@@ -48,7 +48,7 @@
     
 }
 .headerAuth:hover{
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--active-shadow);
 }
 .headerLogo{
     width: 70px;
