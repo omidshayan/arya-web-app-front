@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
 import MainComponents from './components/MainComponents/MainComponents';
 import BottomNavigationMenu from './components/bottomNavigationMenu/BottomNavigationMenu';
 
 import Routes from './routers/routes';
 import { useRoutes } from 'react-router-dom';
+
+import './App.css';
 
 function App() {
 const routes = useRoutes(Routes);

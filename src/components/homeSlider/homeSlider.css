@@ -23,7 +23,7 @@
   padding: 30px;
   border-radius: 10px;
   background: var(--gradient);
-  box-shadow: var(--active-shadow)
+  box-shadow: var(--active-shadow);
 }
 .sliderTitle{
   text-align: center;

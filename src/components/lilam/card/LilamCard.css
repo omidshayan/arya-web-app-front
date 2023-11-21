@@ -1,13 +1,93 @@
+.lilamCityTitle{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.lilamCityTitle a{
+    color: var(--text-color);
+    text-decoration: underline;
+    margin-right: 5px;
+}
 .LilamCard{
-    width: 98%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 .LilamCardItem{
     width: 400px;
-    height: 200px;
-    background-color: red;
+    height: 170px;
+    box-shadow: var(--shadow);
     margin: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.LilamCardItem:hover{
+    box-shadow: var(--active-shadow);
+}
+.lilamCardDetails{
+    display: block;
+    color: red;
+    height: 130px;
     
+}
+.lilamTitleCard{
+    position: relative;
+    width: 180px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 15px;
+    right: 10px;
+}
+.LilamCardItem img{
+    width: 180px;
+    margin-left: 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+.lilamAddressCard{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: .9;
+}
+   
+.lilamPriceCard{
+    position: absolute;
+    bottom: 35px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: .9;
+}
+.lilamShortDescCard{
+    position: absolute;
+    bottom: 65px;
+    right: 10px;
+    font-size: 12px;
+    color: var(--text-color);
+    opacity: .9;
+}
+@media (max-width: 484px) {
+    .LilamCardItem{
+        width: 320px;
+        height: 150px;
+    }
+    .LilamCardItem img{
+        width: 150px;
+        margin-left: 12px;
+    }
+    .lilamTitleCard{
+        font-size: 12px;
+    }
+    .LilamCardItem img{
+        width: 120px;
+    }
 }
