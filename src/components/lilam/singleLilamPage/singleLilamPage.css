@@ -1,0 +1,25 @@
+.mainSingleLilam{
+    height: auto;
+    background-color: rgb(17, 2, 2);
+}
+.detailsProduct{
+    width: 48%;
+    height: 100%;
+    color: var(--text-color);
+}
+.productName{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+.photoProduct{
+    width: 48%;
+    height: 100%;
+}

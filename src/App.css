@@ -59,6 +59,14 @@ a{
 ::-ms-input-placeholder {
   font-family: 'vazir';
 }
+  .container{
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+.singleContainer{
+  max-width: 1024px;
+  margin: 0 auto;
+}
 .overlay{
   width: 100%;
   height: 100vh;
@@ -80,3 +88,28 @@ a{
   visibility: visible;
 }
 
+.t-a{
+  text-align: center;
+}
+.d-flex-all{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.d-flex-align{
+  display: flex;
+  align-items: center;
+}
+.d-flex-justify{
+  display: flex;
+  justify-content: center;
+}
+.f-w{
+  font-weight: bold;
+}
+.m-l5{
+  margin-left: 5px;
+}
+.m5{
+  margin: 5px;
+}

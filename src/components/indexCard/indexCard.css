@@ -24,10 +24,12 @@
 .cardIcon{
     margin: 20px 0;
     font-size: 80px;
+    color: var(--text-color);
 }
 .cardTitle{
     margin-top: 7px;
     font-weight: bold;
+    color: var(--text-color);
 }
 .cardItem:hover{
     box-shadow: var(--active-shadow);

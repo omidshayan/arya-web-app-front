@@ -5,6 +5,7 @@ import Forgate from './../pages/auth/forgate/Forgate';
 
 // lilam routes
 import LilamHome from './../pages/lilam/home/Home';
+import SingleLilam from './../pages/lilam/singleLilamPage/SingleLilam';
 
 
 
@@ -19,6 +20,7 @@ const routes = [
     
     // lilam
     { path: '/lilam', element: <LilamHome />},
+    { path: '/lilam/lilampage', element: <SingleLilam />},
 
 
     
