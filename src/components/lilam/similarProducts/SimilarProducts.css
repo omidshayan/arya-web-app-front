@@ -1,0 +1,14 @@
+.similarProducts{
+    width: 99%;
+    height: auto;
+    box-shadow: var(--active-shadow);
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+.similarTitle{
+    margin: 50px 0 20px 0;
+}
+.nameSimilar{
+    position: absolute;
+    bottom: 10px;
+}

@@ -28,7 +28,7 @@ export default function HomeSlider() {
           slideShadows: true,
         }}
         modules={[EffectCoverflow, Pagination]}
-        className="mySwiper"
+        className="mySwiper p-t-b10"
       >
         <SwiperSlide>
           <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
