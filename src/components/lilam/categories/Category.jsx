@@ -13,43 +13,43 @@ export default function Category() {
         <div className='cateItemMobile'>
           <ul className={showCateMolie ? 'ulCate' : 'ulModal ulCate'}>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 موبایل
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 لوازم خانه
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 ورزشی
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 کمپیوتر
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 سرگرمی
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 املاک
               </li>
             </a>
             <a href="#">
-              <li className="li">
+              <li className="liMobile">
                 <MdEmail className="lilamCateIcon" />
                 موتر
               </li>

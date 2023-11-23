@@ -17,6 +17,9 @@
 .ulCate{
     padding: 5px;
 }
+.liMobile{
+    color: rgb(187, 187, 187);
+}
 @media(max-width: 480px){
     .categoriesList{
         top: 124px;
