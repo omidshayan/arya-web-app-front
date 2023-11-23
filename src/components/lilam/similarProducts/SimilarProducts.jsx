@@ -26,11 +26,11 @@ export default function SimilarProducts() {
         modules={[Pagination]}
         className="mySwiper p-10"
       >
-        <SwiperSlide><img src="img/img-1.jpg" alt="" /><span className="nameSimilar">یخچال فریز آلمانی</span></SwiperSlide>
-        <SwiperSlide><img src="img/img-1.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="img/img-1.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="img/img-1.jpg" alt="" /></SwiperSlide>
-        <SwiperSlide><img src="img/img-1.jpg" alt="" /></SwiperSlide>
+        <SwiperSlide> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /><span className="nameSimilar">یخچال فریز آلمانی</span></SwiperSlide>
+        <SwiperSlide> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
+        <SwiperSlide> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
+        <SwiperSlide> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
+        <SwiperSlide> <img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
       </Swiper>
         </div>
     </>
