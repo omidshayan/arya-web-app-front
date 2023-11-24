@@ -64,7 +64,7 @@ a{
     margin: 0 auto;
   }
 .singleContainer{
-  max-width: 1024px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 .overlay{
@@ -84,7 +84,6 @@ a{
   visibility: visible;
 }
 .active{
-  display: block;
   visibility: visible;
 }
 
@@ -121,4 +120,7 @@ a{
 }
 .p-10{
   padding: 10px;
+}
+.d-block{
+  display: block;
 }

@@ -4,6 +4,7 @@ import BottomNavigationMenu from './components/bottomNavigationMenu/BottomNaviga
 
 import Routes from './routers/routes';
 import { useRoutes } from 'react-router-dom';
+import Footer from './components/footer/Footer';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ const routes = useRoutes(Routes);
       <MainComponents />
       {/* <MainSearchBox /> */}
       {routes}
+      <Footer />
       <BottomNavigationMenu />
     </>
   );

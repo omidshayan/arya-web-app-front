@@ -13,6 +13,12 @@ export default function SingleLilamPage() {
     <>
       <div className="singleContainer">
         <div className="mainSingleLilam d-flex-justify">
+
+        <div className="photoProduct m5">
+            <SliderProduct />
+          </div>
+
+
           <div className="detailsProduct m5">
             <div className="productName">یخچال فریزر آلمانی با ضمانت نامه</div>
             <div className="priceProduct d-flex-align">
@@ -43,11 +49,9 @@ export default function SingleLilamPage() {
               <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی سوم</li>
               <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی چهارم</li>              
             </ul>
+          </div>
 
-          </div>
-          <div className="photoProduct m5">
-            <SliderProduct />
-          </div>
+    
         </div>
 
       {/* similar products */}

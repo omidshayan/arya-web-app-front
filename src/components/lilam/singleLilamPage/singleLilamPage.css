@@ -1,6 +1,7 @@
 .mainSingleLilam{
     height: auto;
     margin-top: 30px;
+    direction: ltr;
 }
 .detailsProduct{
     width: 48%;
@@ -8,6 +9,7 @@
     color: var(--text-color);
     box-shadow: var(--active-shadow);
     padding: 20px;
+    direction: rtl;
 }
 .productName{
     font-size: 22px;
@@ -22,12 +24,21 @@
     padding: 0 10px 0 0;
 }
 
-
-
-
 .photoProduct{
     padding: 20px;
     width: 48%;
     height: 100%;
     box-shadow: var(--active-shadow);
+}
+
+@media(max-width: 1024px){
+    .mainSingleLilam{
+        display: block !important;
+    }
+    .photoProduct{
+        width: 85%;
+    }
+    .detailsProduct{
+        width: 85%;
+    }
 }
