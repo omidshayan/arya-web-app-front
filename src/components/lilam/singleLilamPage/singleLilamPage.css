@@ -23,14 +23,67 @@
 .ulProduct{
     padding: 0 10px 0 0;
 }
-
 .photoProduct{
     padding: 20px;
     width: 48%;
     height: 100%;
     box-shadow: var(--active-shadow);
 }
-
+.showContact{
+    box-shadow: var(--shadow);
+    padding: 13px 12px;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.showContact:hover{
+    box-shadow: var(--active-shadow);
+}
+.showContactActive{
+    padding: 13px 12px;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: var(--active-shadow);
+}
+.backBtn{
+    position: absolute;
+    top: 28px;
+    left: 60px;
+}
+.infoContact{
+    text-align: center;
+    display: none;
+    visibility: hidden;
+}
+.activeContactInfo{
+    display: block;
+    visibility: visible;
+}
+.phoneContact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.numberContact{
+    margin: 0 20px ;
+}
+.copyPhone{
+    box-shadow: var(--shadow);
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+.copyPhone:hover{
+    box-shadow: var(--active-shadow);
+    padding: 4px 8px;
+}
+.addressContact{
+    margin-top: 10px;
+}
 @media(max-width: 1024px){
     .mainSingleLilam{
         display: block !important;
@@ -40,5 +93,19 @@
     }
     .detailsProduct{
         width: 85%;
+    }
+    .similarProducts{
+        width: 80% !important;
+        margin: 0 auto;
+    }
+    .similarTitle{
+        width: 80% !important;
+        margin: 0 auto;
+        margin: 20px 12px 10px 0 !important;
+    }
+    .backBtn{
+        position: absolute;
+        top: 28px;
+        left: 15px;
     }
 }

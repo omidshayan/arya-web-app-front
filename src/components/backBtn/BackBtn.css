@@ -1,0 +1,9 @@
+.backBtnIcon{
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+.backBtnIcon:hover{
+    box-shadow: var(--active-shadow);
+}

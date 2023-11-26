@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaEuroSign } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdTime } from "react-icons/io";
@@ -7,17 +7,28 @@ import { GiConfirmed } from "react-icons/gi";
 import "./singleLilamPage.css";
 import SliderProduct from "./sliderProduct/SliderProduct";
 import SimilarProducts from "../similarProducts/SimilarProducts";
+import BackBtn from "../../backBtn/BackBtn";
 
 export default function SingleLilamPage() {
+
+  // start show contact infos
+  const [showContactInfo, setShowContactInfo] = useState(false);
+
+  // end show contact infos
+
+
+
   return (
     <>
       <div className="singleContainer">
         <div className="mainSingleLilam d-flex-justify">
-
-        <div className="photoProduct m5">
+          <div className="photoProduct m5">
             <SliderProduct />
           </div>
 
+          <div className="backBtn">
+            <BackBtn />
+          </div>
 
           <div className="detailsProduct m5">
             <div className="productName">یخچال فریزر آلمانی با ضمانت نامه</div>
@@ -34,6 +45,17 @@ export default function SingleLilamPage() {
               هرات بکرآباد سمت شرق مسجد جوادیه
             </div>
 
+            {/* start contact infos */}
+            <div onClick={() => setShowContactInfo(true)} className= {showContactInfo ? 'showContactActive f-w deactive' : 'showContact f-w '}>تماس با فروشنده</div>
+            <div className={showContactInfo ? 'infoContact activeContactInfo' : 'infoContact  '}>
+              <div className="phoneContact">
+                <span className="copyPhone"> کپی </span>
+                <div className="numberContact"> 0796968490 </div>
+              </div>
+              <div className="addressContact">هرات، شهرنو، بکر آباد</div>
+            </div>
+            {/* end contact infos */}
+
             <div className="lilamDesc">توضیحات:</div>
             <p className="m-r10">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
@@ -44,18 +66,28 @@ export default function SingleLilamPage() {
 
             <div className="lilamDesc">ویژه گی ها:</div>
             <ul className="ulProduct">
-              <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی اول</li>
-              <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی دوم</li>
-              <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی سوم</li>
-              <li className="d-flex-align"><GiConfirmed className=" m-l5"/>ویژه گی چهارم</li>              
+              <li className="d-flex-align">
+                <GiConfirmed className=" m-l5" />
+                ویژه گی اول
+              </li>
+              <li className="d-flex-align">
+                <GiConfirmed className=" m-l5" />
+                ویژه گی دوم
+              </li>
+              <li className="d-flex-align">
+                <GiConfirmed className=" m-l5" />
+                ویژه گی سوم
+              </li>
+              <li className="d-flex-align">
+                <GiConfirmed className=" m-l5" />
+                ویژه گی چهارم
+              </li>
             </ul>
           </div>
-
-    
         </div>
 
-      {/* similar products */}
-      <SimilarProducts />
+        {/* similar products */}
+        <SimilarProducts />
       </div>
     </>
   );

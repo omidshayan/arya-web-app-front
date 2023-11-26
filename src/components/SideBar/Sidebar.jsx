@@ -47,7 +47,7 @@ export default function Sidebar({ showSlider, closeSlider }) {
         </div>
 
         <div className="themeMode">
-          <input class="toggle" type="checkbox" onClick={handle} />
+          <input className="toggle" type="checkbox" onClick={handle} />
         </div>
 
         <hr className="border" />
