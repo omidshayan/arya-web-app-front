@@ -2,25 +2,35 @@ import { FaKey } from "react-icons/fa6";
 import { FaUserPlus } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import { Link } from "react-router-dom";
 import { MdOutlineNumbers } from "react-icons/md";
-import { useFormik } from "formik";
+
+import { Link } from "react-router-dom";
+import { Formik, Field, Form } from "formik";
 import "../../../i18n";
 import { useTranslation } from "react-i18next";
 import authSchema from "../../../Validations/register";
 
+import { postApi } from "../../../services/Api/api";
+import { toast } from "react-toastify";
+
 export default function RegisterFrom() {
   const { t } = useTranslation();
 
-  const registerForm = useFormik({
-    initialValues: { name: "", number: "", email: "", password: "" },
+  const handleSubmit = async (values, actions) => {
+    const path = "auth/register";
+    try {
+      const status = await postApi(path, values);
+      actions.resetForm();
+      // console.log(status);
 
-    onSubmit: (values, { setSubmit }) => {
-      console.log(values);
-    },
+      // history.push("/login")
+      // setLoading(false)
+    } catch (error) {
+      
+    }
 
-    validationSchema: authSchema,
-  });
+    // postApi(path, values)
+  };
 
   return (
     <>
@@ -36,94 +46,88 @@ export default function RegisterFrom() {
             <span className="loginWelcome">{t("welcomLogin")}</span>
           </div>
 
-          <form onSubmit={registerForm.handleSubmit}>
-            <div className="inputLable">{t("name")}</div>
-            <div className="inputItem">
-              <FaUser className="intpuIcon" />
-              <input
-                type="text"
-                name="name"
-                value={registerForm.values.name}
-                onChange={registerForm.handleChange}
-                onBlur={registerForm.handleBlur}
-                className="loginInput"
-                placeholder={t("enterName")}
-              />
-            </div>
-            <span className="msgError">
-              {registerForm.errors.name &&
-                registerForm.touched.name &&
-                registerForm.errors.name}
-            </span>
+          <Formik
+            initialValues={{ name: "", mobile: "", email: "", password: "" }}
+            onSubmit={(values, actions) => {
+              handleSubmit(values, actions);
+              // console.log(values);
+            }}
+            validationSchema={authSchema}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <div className="inputLable">{t("name")}</div>
+                <div className="inputItem">
+                  <FaUser className="intpuIcon" />
+                  <Field
+                    type="text"
+                    name="name"
+                    placeholder={t("enterName")}
+                    className="loginInput"
+                  />
+                </div>
+                <span className="msgError">
+                  {touched.name && errors.name && errors.name}
+                </span>
 
-            <div className="inputLable"> {t("mobile")}</div>
-            <div className="inputItem">
-              <MdOutlineNumbers className="intpuIcon" />
-              <input
-                type="number"
-                name="number"
-                value={registerForm.values.number}
-                onChange={registerForm.handleChange}
-                onBlur={registerForm.handleBlur}
-                className="loginInput"
-                placeholder={t("enterMobile")}
-                maxLength={10}
-              />
-            </div>
-            <span className="msgError">
-              {registerForm.errors.number &&
-                registerForm.touched.number &&
-                registerForm.errors.number}
-            </span>
+                <div className="inputLable"> {t("mobile")}</div>
+                <div className="inputItem">
+                  <MdOutlineNumbers className="intpuIcon" />
+                  <Field
+                    type="text"
+                    name="mobile"
+                    placeholder={t("enterMobile")}
+                    className="loginInput"
+                  />
+                </div>
+                <span className="msgError">
+                  {touched.mobile && errors.mobile && errors.mobile}
+                </span>
 
-            <div className="inputLable">{t("email")} </div>
-            <div className="inputItem">
-              <MdEmail className="intpuIcon" />
-              <input
-                type="text"
-                name="email"
-                value={registerForm.values.email}
-                onChange={registerForm.handleChange}
-                onBlur={registerForm.handleBlur}
-                className="loginInput"
-                placeholder={t("enterEmail")}
-              />
-            </div>
-            <span className="msgError">
-              {registerForm.errors.email &&
-                registerForm.touched.email &&
-                registerForm.errors.email}
-            </span>
+                <div className="inputLable">{t("email")} </div>
+                <div className="inputItem">
+                  <MdEmail className="intpuIcon" />
+                  <Field
+                    type="text"
+                    name="email"
+                    placeholder={t("enterEmail")}
+                    className="loginInput"
+                  />
+                </div>
+                <span className="msgError">
+                  {touched.email && errors.email && errors.email}
+                </span>
 
-            <div className="inputLable">{t("password")}</div>
-            <div className="inputItem">
-              <FaKey className="intpuIcon" />
-              <input
-                type="text"
-                name="password"
-                value={registerForm.values.password}
-                onChange={registerForm.handleChange}
-                onBlur={registerForm.handleBlur}
-                className="loginInput"
-                placeholder={t("passwordP")}
-              />
-            </div>
-            <span className="msgError">
-              {registerForm.errors.password &&
-                registerForm.touched.password &&
-                registerForm.errors.password}
-            </span>
+                <div className="inputLable">{t("password")}</div>
+                <div className="inputItem">
+                  <FaKey className="intpuIcon" />
+                  <Field
+                    type="text"
+                    name="password"
+                    placeholder={t("passwordP")}
+                    className="loginInput"
+                  />
+                </div>
+                <span className="msgError">
+                  {touched.password && errors.password && errors.password}
+                </span>
 
-            <div className="loginBottom">
-              <div className="">
-                <input className="loginBtn" type="submit" value={t("login")} />
-              </div>
+                <div className="loginBottom">
+                  <div className="">
+                    <input
+                      className="loginBtn"
+                      type="submit"
+                      value={t("login")}
+                    />
+                  </div>
 
-              <div className="newUser">
-                {t("registerd")} <Link to={"/login"}>{t("logined")} </Link>
-              </div>
-            </div>
-          </form>
+                  <div className="newUser">
+                    {t("registerd")} <Link to={"/login"}>{t("logined")} </Link>
+                  </div>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </>

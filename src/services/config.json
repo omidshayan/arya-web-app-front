@@ -1,0 +1,5 @@
+{
+    "BaseApi": "http://localhost:5000/",
+    "BaseUrl": "http://localhost:5000/v1/",
+    "ImageUrl": "https://aryaimages.s3.ir-thr-at1.arvanstorage.ir/"
+}
