@@ -4,32 +4,33 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { MdOutlineNumbers } from "react-icons/md";
 
+import Loading from "./../../loading/Loading";
 import { Link } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import "../../../i18n";
 import { useTranslation } from "react-i18next";
-import authSchema from "../../../Validations/register";
+import {registerSchema} from "../../../Validations/register";
 
 import { postApi } from "../../../services/Api/api";
-import { toast } from "react-toastify";
+import { useState } from "react";
 
 export default function RegisterFrom() {
   const { t } = useTranslation();
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (values, actions) => {
+    setLoading(true);
     const path = "auth/register";
     try {
       const status = await postApi(path, values);
       actions.resetForm();
-      // console.log(status);
+      setLoading(false);
+      // history.push("/address")
 
-      // history.push("/login")
-      // setLoading(false)
     } catch (error) {
-      
+      setLoading(false)
     }
-
-    // postApi(path, values)
   };
 
   return (
@@ -52,8 +53,7 @@ export default function RegisterFrom() {
               handleSubmit(values, actions);
               // console.log(values);
             }}
-            validationSchema={authSchema}
-          >
+            validationSchema={registerSchema}>
             {({ errors, touched }) => (
               <Form>
                 <div className="inputLable">{t("name")}</div>
@@ -113,13 +113,22 @@ export default function RegisterFrom() {
                 </span>
 
                 <div className="loginBottom">
-                  <div className="">
-                    <input
-                      className="loginBtn"
-                      type="submit"
-                      value={t("login")}
-                    />
-                  </div>
+                  {!loading && (
+                    <div className="">
+                      <input
+                        className="loginBtn"
+                        type="submit"
+                        value={t("register")}
+                      />
+                    </div>
+                  )}
+
+                  {/* loading */}
+                  {loading && (
+                    <div className="loadinAuth">
+                      <Loading />
+                    </div>
+                  )}
 
                   <div className="newUser">
                     {t("registerd")} <Link to={"/login"}>{t("logined")} </Link>

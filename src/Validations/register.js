@@ -1,7 +1,12 @@
 // import { object, string } from 'yup'
 import * as Yup from "yup";
 
-const loginSchema = Yup.object().shape({
+export const loginSchema = Yup.object().shape({
+  emailOrMobile: Yup.string().required('لطفا ایمیل یا نمبر موبایل  خود را وارد کنید'),
+  password: Yup.string().required('لطفا رمزعبور خود را وارد کنید'),
+});
+
+export const registerSchema = Yup.object().shape({
   name: Yup.string()
   .min(3, "نام حداقل باید 3 حرف باشد")
   .max(30, "نام حداکثر باید 30 حرف  باشه")
@@ -25,4 +30,8 @@ const loginSchema = Yup.object().shape({
     .required("رمزعبور الزامی است"),
 });
 
-export default loginSchema;
+export const forgetPassSchema = Yup.object().shape({
+  emailOrMobile: Yup.string().required('لطفا ایمیل خود را وارد کنید'),
+});
+
+

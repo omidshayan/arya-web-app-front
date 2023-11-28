@@ -137,6 +137,9 @@ a{
   margin-right: 25px;
   color: red;
 }
+.d-none{
+  display: none;
+}
 
 
 

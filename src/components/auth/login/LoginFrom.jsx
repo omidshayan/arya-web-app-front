@@ -3,27 +3,58 @@ import { MdEmail } from "react-icons/md";
 
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
+import Loading from "./../../loading/Loading";
+import { setCookie } from "./../../../services/cookie"; // تغییر مسیر به مسیر واقعی فایل
 
 import "./loginForm.css";
-import { Link } from "react-router-dom";
-import { useFormik } from "formik";
-import authSchema from "../../../Validations/register";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
+import { loginSchema } from "../../../Validations/register";
+import { useState } from "react";
+import { postApi, getApi } from "../../../services/Api/api";
 
 export default function LoginFrom() {
-
-const loginForm = useFormik({
-  initialValues: {email: '', password: ''},
-
-  onSubmit: (values, { setSubmitting} ) => {
-    console.log(values);
-  },
-
-  validationSchema: authSchema,
-})
-
-
-
   const { t } = useTranslation();
+
+
+  const isAutorize = async () => {
+    const path = "auth/isAutorize";
+    try {
+      const data = await getApi(path)
+      console.log(data)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const [loading, setLoading] = useState(false);
+
+  // const navigate = useNavigate();
+  const handleSubmit = async (values, actions) => {
+    setLoading(true)
+    const path = "auth/login";
+    const body = values;
+
+    try {
+      const  { status, data } = await postApi(path, body);
+
+      setCookie('accessToken', data.data.accessToken)
+      setCookie('refreshToken', data.data.refreshToken)
+      console.log(data.data.accessToken)
+      isAutorize()
+      actions.resetForm();
+      // console.log(values);
+      console.log(data)
+
+      // navigate("/")
+      setLoading(false)
+    } catch (error) {
+      // console.log(error);
+      setLoading(false)
+    }
+  };
+
   return (
     <>
       <div className="loginFrom">
@@ -37,56 +68,78 @@ const loginForm = useFormik({
             </div>
             <span className="loginWelcome">{t("welcomLogin")}</span>
           </div>
-          
-              <form onSubmit={loginForm.handleSubmit}>
+
+          <Formik
+            initialValues={{ emailOrMobile: "", password: "" }}
+            onSubmit={(values, actions) => {
+              handleSubmit(values, actions);
+              // console.log(values);
+            }}
+            validationSchema={loginSchema}
+          >
+            {({ touched, errors }) => (
+              <Form>
                 <div className="inputLable">{t("emailOrMobile")}</div>
                 <div className="inputItem">
                   <MdEmail className="intpuIcon" />
-                  <input
+                  <Field
                     type="text"
-                    name="email"
-                    value={loginForm.values.email}
-                    onChange={loginForm.handleChange}
-                    onBlur={loginForm.handleBlur}
+                    name="emailOrMobile"
                     className="loginInput"
                     placeholder={t("emailOrMobileP")}
                   />
                 </div>
-                  <span className="msgError">{loginForm.errors.email && loginForm.touched.email && loginForm.errors.email}</span>
+                <span className="msgError">
+                  {touched.emailOrMobile &&
+                    errors.emailOrMobile &&
+                    errors.emailOrMobile}
+                </span>
 
                 <div className="inputLable">{t("password")}</div>
                 <div className="inputItem">
                   <FaKey className="intpuIcon" />
-                  <input
-                    type="password"
+                  <Field
+                    type="text"
                     name="password"
-                    value={loginForm.values.password}
-                    onChange={loginForm.handleChange}
-                    onBlur={loginForm.handleBlur}
                     className="loginInput"
                     placeholder={t("passwordP")}
                   />
                 </div>
-                  <span className="msgError">{loginForm.errors.password && loginForm.touched.password && loginForm.errors.password}</span>
+                <span className="msgError">
+                  {" "}
+                  {touched.password && errors.password && errors.password}
+                </span>
 
                 <div className="loginBottom">
                   <Link to={"/forgate"}>
                     <div className="forgetText">{t("forgatPassword")}</div>
                   </Link>
-                  <div className="">
-                    <input
-                      className="loginBtn"
-                      type="submit"
-                      value={t("login")}
-                    />
-                  </div>
+
+                  {!loading && (
+                    <div className="">
+                      <input
+                        className="loginBtn"
+                        type="submit"
+                        value={t("register")}
+                      />
+                    </div>
+                  )}
+
+                  {/* loading */}
+                  {loading && (
+                    <div className="loadinAuth">
+                      <Loading />
+                    </div>
+                  )}
+
                   <div className="newUser">
                     {t("addNewUser")}
                     <Link to={"/register"}>{t("register")} </Link>
                   </div>
                 </div>
-              </form>
-
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </>
