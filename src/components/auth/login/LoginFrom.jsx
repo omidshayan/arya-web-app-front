@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
 import Loading from "./../../loading/Loading";
-import { setCookie } from "./../../../services/cookie"; // تغییر مسیر به مسیر واقعی فایل
+import { setCookie } from "./../../../services/cookie";
 
 import "./loginForm.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,42 +16,39 @@ import { postApi, getApi } from "../../../services/Api/api";
 export default function LoginFrom() {
   const { t } = useTranslation();
 
-
   const isAutorize = async () => {
     const path = "auth/isAutorize";
     try {
-      const data = await getApi(path)
-      console.log(data)
-
+      const data = await getApi(path);
+      // console.log(data)
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const [loading, setLoading] = useState(false);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  
   const handleSubmit = async (values, actions) => {
-    setLoading(true)
+    setLoading(true);
     const path = "auth/login";
     const body = values;
 
     try {
-      const  { status, data } = await postApi(path, body);
+      const { status, data } = await postApi(path, body);
 
-      setCookie('accessToken', data.data.accessToken)
-      setCookie('refreshToken', data.data.refreshToken)
-      console.log(data.data.accessToken)
-      isAutorize()
+      setCookie("accessToken", data.data.accessToken);
+      setCookie("refreshToken", data.data.refreshToken);
+
+      isAutorize();
       actions.resetForm();
-      // console.log(values);
-      console.log(data)
 
-      // navigate("/")
-      setLoading(false)
+      navigate("/login")
+      setLoading(false);
     } catch (error) {
       // console.log(error);
-      setLoading(false)
+      setLoading(false);
     }
   };
 
