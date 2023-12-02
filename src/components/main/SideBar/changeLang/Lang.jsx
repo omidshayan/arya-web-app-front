@@ -1,7 +1,7 @@
 import React from "react";
 import { MdEmail } from "react-icons/md";
 
-import i18n from '../../../i18n';
+import i18n from '../../../../i18n';
 import { useTranslation } from 'react-i18next';
 
 

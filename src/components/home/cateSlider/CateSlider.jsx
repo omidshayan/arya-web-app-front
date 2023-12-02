@@ -7,9 +7,9 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 
-import "./homeSlider.css";
+import "./CateSlider.css";
 
-import './../../i18n';
+import '../../../i18n';
 import { useTranslation } from 'react-i18next';
 
 
@@ -42,7 +42,7 @@ export default function HomeSlider() {
           }}
           pagination={true}
           modules={[EffectCoverflow, Pagination]}
-          className="mySwiper"
+          className="cateSwiper"
         >
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />

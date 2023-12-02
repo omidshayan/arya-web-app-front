@@ -5,7 +5,7 @@ import { CiShop } from "react-icons/ci";
 import { CiAlignCenterH } from "react-icons/ci";
 import { FaPersonSkiing } from "react-icons/fa6";
 
-import "./../../i18n";
+import "../../../i18n";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 

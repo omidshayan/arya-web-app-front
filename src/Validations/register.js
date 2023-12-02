@@ -31,7 +31,11 @@ export const registerSchema = Yup.object().shape({
 });
 
 export const forgetPassSchema = Yup.object().shape({
-  emailOrMobile: Yup.string().required('لطفا ایمیل خود را وارد کنید'),
+  email: Yup.string()
+  .email("ایمیل نا معتبر است")
+  .min(10, "ایمیل نا معتبر است")
+  .max(50, "ایمیل نا معتبر است")
+  .required("ایمیل الزامی است"),
 });
 
 

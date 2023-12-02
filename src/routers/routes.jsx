@@ -3,7 +3,7 @@ import Login from './../pages/auth/login/Login';
 import Register from './../pages/auth/register/Register';
 import Forgate from './../pages/auth/forgate/Forgate';
 
-// lilam routes
+// // lilam routes
 import LilamHome from './../pages/lilam/home/Home';
 import SingleLilam from './../pages/lilam/singleLilamPage/SingleLilam';
 
@@ -18,13 +18,13 @@ const routes = [
     { path: '/forgate', element: <Forgate />},
     
     
-    // lilam
+    // // lilam
     { path: '/lilam', element: <LilamHome />},
     { path: '/lilam/lilampage', element: <SingleLilam />},
 
 
     
-    { path: '/*', element: '404'},
+    // { path: '/*', element: '404'},
 ]
 
 export default routes;

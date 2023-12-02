@@ -46,7 +46,7 @@ Axios.interceptors.response.use(
     let message = error.response ? error.response.data?.error : "خطای سرور";
     // console.log(error.response.data);
     error.response.data.errors.map(
-      (err:any) =>{
+      (err) =>{
         toast.error(err.message, {
           position: "top-right",
           autoClose: 5000,

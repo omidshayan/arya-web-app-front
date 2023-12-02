@@ -16,8 +16,6 @@ export default function SingleLilamPage() {
 
   // end show contact infos
 
-
-
   return (
     <>
       <div className="singleContainer">

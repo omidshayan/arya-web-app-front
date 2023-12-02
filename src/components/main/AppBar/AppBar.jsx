@@ -1,10 +1,11 @@
 import "./AppBar.css";
-import MenuIcon from "@mui/icons-material/Menu";
+import { GiHamburgerMenu } from "react-icons/gi";
+
 import Sidebar from "../SideBar/Sidebar";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import "./../../i18n";
+import "./../../../i18n";
 import { useTranslation } from "react-i18next";
 
 export default function AppBar() {
@@ -51,7 +52,7 @@ export default function AppBar() {
         </div>
 
         <div className="hamberIconSlider">
-          <MenuIcon
+          <GiHamburgerMenu
             className="hamberIcon"
             onClick={() => setShowSidebar(true)}
           />

@@ -5,31 +5,34 @@ import "./../../../i18n";
 import { useTranslation } from "react-i18next";
 import Loading from "./../../loading/Loading";
 import { setCookie } from "./../../../services/cookie";
+import { Helmet } from "react-helmet";
 
 import "./loginForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { loginSchema } from "../../../Validations/register";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postApi, getApi } from "../../../services/Api/api";
+import {UserInfo} from "../../../Context/UserInfoContext";
+
 
 export default function LoginFrom() {
   const { t } = useTranslation();
 
-  const isAutorize = async () => {
-    const path = "auth/isAutorize";
-    try {
-      const data = await getApi(path);
-      // console.log(data)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // const isAutorize = async () => {
+  //   const path = "auth/isAutorize";
+  //   try {
+  //     const data = await getApi(path);
+  //     // console.log(data)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  const user = useContext(UserInfo);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (values, actions) => {
     setLoading(true);
     const path = "auth/login";
@@ -41,10 +44,10 @@ export default function LoginFrom() {
       setCookie("accessToken", data.data.accessToken);
       setCookie("refreshToken", data.data.refreshToken);
 
-      isAutorize();
+      // isAutorize();
       actions.resetForm();
 
-      navigate("/login")
+      navigate("/login");
       setLoading(false);
     } catch (error) {
       // console.log(error);
@@ -54,11 +57,14 @@ export default function LoginFrom() {
 
   return (
     <>
+      <Helmet>
+        <title>ساخت اکانت</title>
+      </Helmet>
       <div className="loginFrom">
         <div className="loginContainer">
           <div className="loginTitle">
             <div className="loginLogin">
-              {t("login")}{" "}
+              {t("login")}{" "}{user.n}
               <span>
                 <FaKey className="loginIcon" />
               </span>
