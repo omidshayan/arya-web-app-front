@@ -1,14 +1,14 @@
 import { createContext } from "react";
 
 
-export const UserInfo = createContext();
+const UserInfoContext = createContext({
+    isLoggdIn: false,
+    token: null,
+    UserInfo: null,
+    login: () =>{},
+    logout: () =>{},
+});
 
-const UserInfoProvider = ({children}) => {
-    return(
-        <UserInfo.Provider value={{n: 'omid', f: 'jan'}}>
-            {children}
-        </UserInfo.Provider>
-    )
-}
 
-export default UserInfoProvider;
+
+export default UserInfoContext;

@@ -13,22 +13,25 @@ import { Formik, Form, Field } from "formik";
 import { loginSchema } from "../../../Validations/register";
 import { useContext, useState } from "react";
 import { postApi, getApi } from "../../../services/Api/api";
-import {UserInfo} from "../../../Context/UserInfoContext";
+import UserInfoContext from "../../../Context/UserInfoContext";
 
 
 export default function LoginFrom() {
   const { t } = useTranslation();
 
+
   // const isAutorize = async () => {
   //   const path = "auth/isAutorize";
   //   try {
   //     const data = await getApi(path);
-  //     // console.log(data)
+  //     console.log(data)
   //   } catch (error) {
   //     console.log(error);
   //   }
   // };
-  const user = useContext(UserInfo);
+
+  const {getUserData, userData} = useContext(UserInfoContext);
+
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -40,14 +43,14 @@ export default function LoginFrom() {
 
     try {
       const { status, data } = await postApi(path, body);
-
       setCookie("accessToken", data.data.accessToken);
       setCookie("refreshToken", data.data.refreshToken);
 
+      getUserData();
       // isAutorize();
       actions.resetForm();
 
-      navigate("/login");
+      navigate("/");
       setLoading(false);
     } catch (error) {
       // console.log(error);
@@ -64,7 +67,7 @@ export default function LoginFrom() {
         <div className="loginContainer">
           <div className="loginTitle">
             <div className="loginLogin">
-              {t("login")}{" "}{user.n}
+              {t("login")}{" "}{userData?.name}
               <span>
                 <FaKey className="loginIcon" />
               </span>

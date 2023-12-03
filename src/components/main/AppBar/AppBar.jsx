@@ -2,17 +2,19 @@ import "./AppBar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import Sidebar from "../SideBar/Sidebar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
+import UserInfoContext from "../../../Context/UserInfoContext";
 
 export default function AppBar() {
   const { t } = useTranslation();
 
   const [showSidebar, setShowSidebar] = useState(false);
 
+const {userData} = useContext(UserInfoContext);
 
     // start handle Theme Mode
     const [theme, setTheme] = useState(false);
@@ -49,6 +51,8 @@ export default function AppBar() {
           <Link to={"/"} className="menuItem">
             home
           </Link>
+          
+          {userData ? 'login shode' : 'nashode'}
         </div>
 
         <div className="hamberIconSlider">

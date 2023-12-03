@@ -1,7 +1,8 @@
 import axios from "axios";
 import * as configData  from "./config.json";
 // import swal from "sweetalert";
-import { getCookie, setCookie } from 'typescript-cookie'
+import Cookies from 'js-cookie';
+
 import { toast } from "react-toastify";
 
 const {BaseUrl} = configData;
@@ -9,7 +10,7 @@ const Axios = axios.create({ baseURL: BaseUrl });
 
 
 export function getJwt() {
-  let jwt = getCookie("accessToken");
+  let jwt = Cookies.get("accessToken");
   console.log(jwt);
   return jwt;
 }
