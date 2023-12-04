@@ -1,14 +1,14 @@
 import { createContext } from "react";
 
 
-const UserInfoContext = createContext({
+const UserContext = createContext({
     isLoggdIn: false,
     token: null,
-    UserInfo: null,
+    userDate: null,
     login: () =>{},
     logout: () =>{},
 });
 
 
 
-export default UserInfoContext;
+export default UserContext;

@@ -11,9 +11,10 @@ import "./loginForm.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { loginSchema } from "../../../Validations/register";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { postApi, getApi } from "../../../services/Api/api";
-import UserInfoContext from "../../../Context/UserInfoContext";
+import UserContext from "../../../Context/UserContext";
+
 
 
 export default function LoginFrom() {
@@ -30,11 +31,18 @@ export default function LoginFrom() {
   //   }
   // };
 
-  const {getUserData, userData} = useContext(UserInfoContext);
-
+  const {getUserData, userData} = useContext(UserContext);
   const [loading, setLoading] = useState(false);
 
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData) {
+      navigate('/');
+    }
+  }, [userData]);
+
 
   const handleSubmit = async (values, actions) => {
     setLoading(true);
@@ -67,7 +75,7 @@ export default function LoginFrom() {
         <div className="loginContainer">
           <div className="loginTitle">
             <div className="loginLogin">
-              {t("login")}{" "}{userData?.name}
+              {t("login")}{" "}
               <span>
                 <FaKey className="loginIcon" />
               </span>
@@ -115,7 +123,7 @@ export default function LoginFrom() {
                   {" "}
                   {touched.password && errors.password && errors.password}
                 </span>
-
+                  
                 <div className="loginBottom">
                   <Link to={"/forgate"}>
                     <div className="forgetText">{t("forgatPassword")}</div>

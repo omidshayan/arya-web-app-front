@@ -5,19 +5,27 @@ import { MdEmail } from "react-icons/md";
 import { MdOutlineNumbers } from "react-icons/md";
 
 import Loading from "./../../loading/Loading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import "../../../i18n";
 import { useTranslation } from "react-i18next";
-import {registerSchema} from "../../../Validations/register";
+import { registerSchema } from "../../../Validations/register";
 
 import { postApi } from "../../../services/Api/api";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import UserContext from "../../../Context/UserContext";
 
 export default function RegisterFrom() {
   const { t } = useTranslation();
-
+  const { getUserData, userData } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData) {
+      navigate("/");
+    }
+  }, [userData]);
 
   const handleSubmit = async (values, actions) => {
     setLoading(true);
@@ -27,9 +35,8 @@ export default function RegisterFrom() {
       actions.resetForm();
       setLoading(false);
       // history.push("/address")
-
     } catch (error) {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -53,7 +60,8 @@ export default function RegisterFrom() {
               handleSubmit(values, actions);
               // console.log(values);
             }}
-            validationSchema={registerSchema}>
+            validationSchema={registerSchema}
+          >
             {({ errors, touched }) => (
               <Form>
                 <div className="inputLable">{t("name")}</div>

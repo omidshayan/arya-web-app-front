@@ -7,36 +7,34 @@ import { Link } from "react-router-dom";
 
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
-import UserInfoContext from "../../../Context/UserInfoContext";
+import UserContext from "../../../Context/UserContext";
 
 export default function AppBar() {
   const { t } = useTranslation();
 
   const [showSidebar, setShowSidebar] = useState(false);
 
-const {userData} = useContext(UserInfoContext);
+  const { userData } = useContext(UserContext);
 
-    // start handle Theme Mode
-    const [theme, setTheme] = useState(false);
-  
-    const handle = () => {
-          if (theme === true) {
-        document.body.classList.toggle("lightMode");
-      } else {
-        document.body.classList.remove("lightMode");
-      }
-      setTheme(!theme);
-    };
-    useEffect(() => {
-      if (theme === true) {
-        document.body.classList.add("lightMode");
-      } else {
-        document.body.classList.remove("lightMode");
-      }
-    });
-    // end handle Theme Mode
+  // start handle Theme Mode
+  const [theme, setTheme] = useState(false);
 
-
+  const handle = () => {
+    if (theme === true) {
+      document.body.classList.toggle("lightMode");
+    } else {
+      document.body.classList.remove("lightMode");
+    }
+    setTheme(!theme);
+  };
+  useEffect(() => {
+    if (theme === true) {
+      document.body.classList.add("lightMode");
+    } else {
+      document.body.classList.remove("lightMode");
+    }
+  });
+  // end handle Theme Mode
 
   return (
     <>
@@ -51,8 +49,6 @@ const {userData} = useContext(UserInfoContext);
           <Link to={"/"} className="menuItem">
             home
           </Link>
-          
-          {userData ? 'login shode' : 'nashode'}
         </div>
 
         <div className="hamberIconSlider">
@@ -63,12 +59,21 @@ const {userData} = useContext(UserInfoContext);
         </div>
 
         <div className="headerLeftItem">
-          <Link to={"/login"} className="headerAuth">
-            {t("loginRegister")}
-          </Link>
-
+          {userData ? (
+            <Link to={"/login"} className="headerAuth">
+                user panel
+            </Link>
+          ) : (
+            <Link to={"/login"} className="headerAuth">
+              {t("loginRegister")}
+            </Link>
+          )}
           <div className="themeMode">
-            <input className="toggle toggleHeader" type="checkbox" onClick={handle}/>
+            <input
+              className="toggle toggleHeader"
+              type="checkbox"
+              onClick={handle}
+            />
           </div>
 
           <Link to={"/"}>

@@ -10,7 +10,6 @@ import SingleLilam from './../pages/lilam/singleLilamPage/SingleLilam';
 
 
 const routes = [
-
     // home page
     { path: '/', element: <Home />},
     { path: '/login', element: <Login />},
@@ -24,7 +23,7 @@ const routes = [
 
 
     
-    // { path: '/*', element: '404'},
+    { path: '/*', element: '404'},
 ]
 
 export default routes;
