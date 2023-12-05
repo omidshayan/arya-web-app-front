@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
 import UserContext from "../../../Context/UserContext";
+import UserPanel from './../userMenu/UserMenu';
+
+
 
 export default function AppBar() {
   const { t } = useTranslation();
@@ -60,9 +63,7 @@ export default function AppBar() {
 
         <div className="headerLeftItem">
           {userData ? (
-            <Link to={"/login"} className="headerAuth">
-                user panel
-            </Link>
+            <UserPanel className="headerAuth"/>
           ) : (
             <Link to={"/login"} className="headerAuth">
               {t("loginRegister")}

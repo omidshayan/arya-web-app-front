@@ -21,6 +21,16 @@ const UserInfo = ({ children }) => {
     }
   };
 
+  const logout = () => {
+    // Clear the cookies
+    Cookies.remove("accessToken");
+    Cookies.remove("refreshToken");
+
+    // Reset state
+    setUserData(null);
+    setIsLoggeIn(false);
+  };
+
   //   const logout = async () => {
 
   //   };
@@ -35,6 +45,7 @@ const UserInfo = ({ children }) => {
         isLoggdIn,
         token,
         userData,
+        logout,
         getUserData,
       }}
     >
