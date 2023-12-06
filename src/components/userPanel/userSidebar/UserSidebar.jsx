@@ -1,6 +1,9 @@
 import React from "react";
 import "./UserSidebar.css";
-import BaseAccordion from "../../main/accourdion/lilam/Accordion";
+import BaseAccordion from "../../main/accourdion/Accordion";
+import { Link } from "react-router-dom";
+import { BiSolidShow } from "react-icons/bi";
+import { MdShowChart } from "react-icons/md";
 
 export default function UserSidebar() {
   return (
@@ -12,7 +15,15 @@ export default function UserSidebar() {
         <div className="userSidebarItems">
           <div className="userSidebarItem">lilam</div>
         </div>
-        <BaseAccordion />
+        <BaseAccordion title={"لیلامی"}>
+          <Link to={"/"} className="color accordionLink p-t6">
+            <BiSolidShow className="m5"/> نمایش همه
+          </Link>
+
+          <Link to={"/"} className="color accordionLink p-t6">
+            <MdShowChart className="m5"/> نمایش همه
+          </Link>
+        </BaseAccordion>
       </div>
     </>
   );

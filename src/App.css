@@ -124,11 +124,17 @@ a{
 .m-t5{
   margin-top: 20px;
 }
+.m-b5{
+  margin-bottom: 10px;
+}
 .p-t-b10{
   padding: 15px 0;
 }
 .p-10{
   padding: 10px;
+}
+.p-t6{
+  margin-top: 5px;
 }
 .d-block{
   display: block;

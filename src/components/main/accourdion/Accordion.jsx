@@ -4,28 +4,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import { IoIosArrowDown } from "react-icons/io";
 import './Accordion.css';
-import { Link } from "react-router-dom";
 
 
-export default function BasicAccordion() {
+export default function BasicAccordion({title, children}) {
   return (
     <div>
       <Accordion className="accordionGroup">
         <AccordionSummary
-          expandIcon={<IoIosArrowDown />}
+          expandIcon={<IoIosArrowDown className="color"/>}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <div className="f-w margin">لیلامی</div>
+        <div className="f-w margin">{title}</div>
         </AccordionSummary>
         <AccordionDetails>
-          <Link to={'/'} className="color  d-block">
-            نمایش همه
-          </Link>
-          
-          <Link to={'/'} className="color  d-block">
-            go to home
-          </Link>
+          {children}
         </AccordionDetails>
       </Accordion>
       <hr />
