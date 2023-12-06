@@ -31,17 +31,17 @@ export default function LoginFrom() {
   //   }
   // };
 
-  const {getUserData, userData} = useContext(UserContext);
+  const {getUserData, isLoggdIn} = useContext(UserContext);
   const [loading, setLoading] = useState(false);
 
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData) {
+    if (isLoggdIn) {
       navigate('/');
     }
-  }, [userData]);
+  }, [isLoggdIn]);
 
 
   const handleSubmit = async (values, actions) => {

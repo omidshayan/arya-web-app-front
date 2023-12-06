@@ -17,7 +17,7 @@ export default function AppBar() {
 
   const [showSidebar, setShowSidebar] = useState(false);
 
-  const { userData } = useContext(UserContext);
+  const { isLoggdIn } = useContext(UserContext);
 
   // start handle Theme Mode
   const [theme, setTheme] = useState(false);
@@ -62,7 +62,7 @@ export default function AppBar() {
         </div>
 
         <div className="headerLeftItem">
-          {userData ? (
+          {isLoggdIn ? (
             <UserPanel className="headerAuth"/>
           ) : (
             <Link to={"/login"} className="headerAuth">

@@ -2,11 +2,13 @@ import UserContext from "./UserContext";
 import { useState, useEffect } from "react";
 import { getApi } from "./../services/Api/api";
 import Cookies from "js-cookie";
+import { useNavigate} from 'react-router-dom'
 
 const UserInfo = ({ children }) => {
+  const navigate = useNavigate();
   const [isLoggdIn, setIsLoggeIn] = useState(false);
   const [token, setToken] = useState(false);
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({});
 
   const getUserData = async () => {
     const path = "users/me";
@@ -15,7 +17,6 @@ const UserInfo = ({ children }) => {
       // console.log(data)
       setUserData(data.data.data);
       setIsLoggeIn(true)
-      console.log(isLoggdIn)
     } catch (error) {
       console.log(error);
     }
@@ -28,17 +29,18 @@ const UserInfo = ({ children }) => {
 
     // Reset state
     setUserData(null);
+    navigate('/login')
     setIsLoggeIn(false);
   };
 
-  //   const logout = async () => {
-
-  //   };
-
+ 
   useEffect(() => {
-    getUserData();
-  }, [Cookies.get("accessToken")]);
-  console.log(UserContext);
+    if(Cookies.get("accessToken")){
+      getUserData();
+    }
+  },[]);
+  
+  console.log(Cookies.get("accessToken"));
   return (
     <UserContext.Provider
       value={{

@@ -20,8 +20,8 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const {userData} = useContext(UserContext);
-
+  const {userData, logout} = useContext(UserContext);
+  
 
   return (
     <Box sx={{ flexGrow: 2 }}>
@@ -61,10 +61,10 @@ function ResponsiveAppBar() {
           </Link>
         </MenuItem>
 
-        <MenuItem>
-          <Link to={"/logout"} className="f-w colorMenuItem">
+        <MenuItem onClick={logout}>
+          
             خروج
-          </Link>
+          
         </MenuItem>
       </Menu>
     </Box>
