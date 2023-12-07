@@ -1,6 +1,6 @@
 .userSidebar{
     width: 23%;
-    height: 700px;
+    height: auto;
 }
 .img-avatar{
     display: flex;

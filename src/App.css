@@ -96,6 +96,9 @@ a{
 .t-a{
   text-align: center;
 }
+.d-flex{
+  display: flex;
+}
 .d-flex-all{
   display: flex;
   align-items: center;

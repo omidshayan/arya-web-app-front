@@ -14,9 +14,6 @@ export default function UserSidebar() {
   return (
     <>
       <div className="userSidebar p-10">
-        <div className="img-avatar">
-          <img src="img/img-1.jpg" alt="" />
-        </div>
         <div className="userSidebarSingleItems p-t">
           <Link to={'/dashboard'}>
             <div className="f-w color d-flex-align a-u-s">

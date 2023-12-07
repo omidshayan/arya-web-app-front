@@ -1,6 +1,7 @@
 .userContent{
     width: 71%;
-    height: 700px;
+    height: auto;
     border: 1px solid var(--border-color);
     margin-top: 50px;
+    border-radius: 20px;
 }
