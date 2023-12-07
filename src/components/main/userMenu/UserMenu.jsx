@@ -62,9 +62,9 @@ function ResponsiveAppBar() {
         </MenuItem>
 
         <MenuItem onClick={logout}>
-          
+          <span className="f-w colorMenuItem">
             خروج
-          
+          </span>
         </MenuItem>
       </Menu>
     </Box>

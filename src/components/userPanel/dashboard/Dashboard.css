@@ -1,0 +1,7 @@
+.userBox{
+    width: 30%;
+    height: 120px;
+    background-color: var(--gradient);
+    box-shadow: var(--shadow);
+    margin: 10px;
+}

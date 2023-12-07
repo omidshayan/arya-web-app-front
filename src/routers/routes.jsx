@@ -10,8 +10,10 @@ import LilamHome from './../pages/lilam/home/Home';
 import SingleLilam from './../pages/lilam/singleLilamPage/SingleLilam';
 
 // user panel routes
-import Index from '../components/userPanel/Index';
-
+import Dashboard from '../pages/userPanel/dashboard/Dashboard';
+import MyLilam from '../pages/userPanel/myLilam/MyLilam';
+import DeactiveLilam from './../pages/userPanel/deactiveLilam/DeactiveLilam';
+import UserInfo from '../components/userPanel/userInfo/UserInfo';
 
 
 const routes = [
@@ -28,7 +30,10 @@ const routes = [
     
     
     // userPanel
-    { path: '/dashboard', element: <Index />},
+    { path: '/dashboard', element: <Dashboard />},
+    { path: '/userInfo', element: <UserInfo />},
+    { path: '/myLilam', element: <MyLilam />},
+    { path: '/deactiveLilam', element: <DeactiveLilam />},
 
 
     

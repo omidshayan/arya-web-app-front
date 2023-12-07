@@ -12,10 +12,16 @@
     height: 80px;
     border-radius: 50%;
 }
-.userSidebarItems{
+.userSidebarSingleItems{
+    margin-right: 16px;
+}
+.p-t{
     margin-top: 30px;
 }
 .accordionLink{
     display: flex;
     align-items: center;
+}
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+    margin: 10px 0 !important;
 }

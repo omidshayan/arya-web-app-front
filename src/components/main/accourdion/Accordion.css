@@ -1,6 +1,6 @@
 .accordionGroup{
-    box-shadow: var(--shadow) !important;
-    background: var(--gradient) !important;
+    /* box-shadow: var(--shadow) !important; */
+    background: transparent !important;
     color: var(--text-color) !important;
 }
 .css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded{

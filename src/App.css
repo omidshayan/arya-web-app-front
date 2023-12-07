@@ -115,6 +115,9 @@ a{
 .m-l5{
   margin-left: 5px;
 }
+.m-l10{
+  margin-left: 10px;
+}
 .m5{
   margin: 5px;
 }
@@ -134,7 +137,7 @@ a{
   padding: 10px;
 }
 .p-t6{
-  margin-top: 5px;
+  margin-top: 6px;
 }
 .d-block{
   display: block;
@@ -146,13 +149,18 @@ a{
   margin-right: 25px;
   color: red;
 }
+.font-icon{
+  font-size: 30px;
+}
 .d-none{
   display: none;
 }
 .color{
   color: var(--text-color) !important;
 }
-
+.a-u-s{
+  color: var(--sub-color) !important;
+}
 
 
 /* .inputError{

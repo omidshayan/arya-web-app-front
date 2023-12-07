@@ -33,7 +33,6 @@ const UserInfo = ({ children }) => {
     setIsLoggeIn(false);
   };
 
- 
   useEffect(() => {
     if(Cookies.get("accessToken")){
       getUserData();

@@ -6,7 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import './Accordion.css';
 
 
-export default function BasicAccordion({title, children}) {
+export default function BasicAccordion({title, icon, children}) {
   return (
     <div>
       <Accordion className="accordionGroup">
@@ -15,13 +15,12 @@ export default function BasicAccordion({title, children}) {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-        <div className="f-w margin">{title}</div>
+        <div className="f-w"><span className="m-l10">{icon}</span>{title}</div>
         </AccordionSummary>
         <AccordionDetails>
           {children}
         </AccordionDetails>
       </Accordion>
-      <hr />
     </div>
   );
 }
