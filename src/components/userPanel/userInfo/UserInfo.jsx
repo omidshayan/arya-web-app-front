@@ -8,12 +8,14 @@ import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../Validations/register";
 import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-
+import ImageUploader from "react-image-upload";
+import "react-image-upload/dist/index.css";
 export default function UserInfo() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
+  const [ProfileImage, setProfileImage] = useState();
+  
   return (
     <>
       <UserContent title="مشخصات من">
@@ -22,7 +24,13 @@ export default function UserInfo() {
         </Helmet>
 
         <Formik
-          initialValues={{ name: "", mobile: "", email: "", address: "", shortDesc: "" }}
+          initialValues={{
+            name: "",
+            mobile: "",
+            email: "",
+            address: "",
+            shortDesc: "",
+          }}
           onSubmit={(values, actions) => {
             //   handleSubmit(values, actions);
             console.log(values);
@@ -44,9 +52,7 @@ export default function UserInfo() {
                     />
                   </div>
                   <span className="msgError">
-                    {touched.name &&
-                      errors.name &&
-                      errors.name}
+                    {touched.name && errors.name && errors.name}
                   </span>
                 </div>
 
@@ -62,9 +68,7 @@ export default function UserInfo() {
                     />
                   </div>
                   <span className="msgError">
-                    {touched.email &&
-                      errors.email &&
-                      errors.email}
+                    {touched.email && errors.email && errors.email}
                   </span>
                 </div>
 
@@ -80,9 +84,7 @@ export default function UserInfo() {
                     />
                   </div>
                   <span className="msgError">
-                    {touched.mobile &&
-                      errors.mobile &&
-                      errors.mobile}
+                    {touched.mobile && errors.mobile && errors.mobile}
                   </span>
                 </div>
 
@@ -109,28 +111,36 @@ export default function UserInfo() {
                       className="loginInput"
                       placeholder={t("emailOrMobileP")}
                     />
-                    
                   </div>
                 </div>
               </div>
+              
+
+              <ImageUploader
+                style={{
+                  height: 200,
+                  width: 200,
+                  background: "rgb(0 182 255)",
+                }}
+                deleteIcon={<MdEmail />}
+                uploadIcon={<MdEmail />}
+              />
+
+
+
 
               {!loading && (
-                    <div className="">
-                      <input
-                        className="loginBtn"
-                        type="submit"
-                        value={'ثبت'}
-                      />
-                    </div>
-                  )}
+                <div className="">
+                  <input className="loginBtn" type="submit" value={"ثبت"} />
+                </div>
+              )}
 
-                  {/* loading */}
-                  {loading && (
-                    <div className="loadinAuth">
-                      <Loading />
-                    </div>
-                  )}
-
+              {/* loading */}
+              {loading && (
+                <div className="loadinAuth">
+                  <Loading />
+                </div>
+              )}
             </Form>
           )}
         </Formik>
