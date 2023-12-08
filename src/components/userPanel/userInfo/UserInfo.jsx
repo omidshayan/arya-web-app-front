@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import UserContent from "../userContent/UserContent";
 import "./UserInfo.css";
 import { Formik, Form, Field } from "formik";
@@ -10,12 +10,18 @@ import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
 import ImageUploader from "react-image-upload";
 import "react-image-upload/dist/index.css";
+import UserContext from './../../../Context/UserContext';
+
+
 export default function UserInfo() {
+  
+  const {userData} = useContext(UserContext);
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
+
   const [ProfileImage, setProfileImage] = useState();
-  
+
   return (
     <>
       <UserContent title="مشخصات من">
@@ -47,6 +53,7 @@ export default function UserInfo() {
                     <Field
                       type="text"
                       name="name"
+                      value={userData?.name}
                       className="loginInput"
                       placeholder={t("name")}
                     />
@@ -63,6 +70,7 @@ export default function UserInfo() {
                     <Field
                       type="email"
                       name="email"
+                      value={userData.email}
                       className="loginInput"
                       placeholder={t("email")}
                     />
@@ -79,6 +87,7 @@ export default function UserInfo() {
                     <Field
                       type="number"
                       name="mobile"
+                      value={userData.mobile}
                       className="loginInput"
                       placeholder={t("mobile")}
                     />
@@ -95,6 +104,7 @@ export default function UserInfo() {
                     <Field
                       type="text"
                       name="address"
+                      value={userData?.address}
                       className="loginInput"
                       placeholder={t("emailOrMobileP")}
                     />
@@ -108,6 +118,7 @@ export default function UserInfo() {
                     <Field
                       type="text"
                       name="shortDesc"
+                      value={userData?.shortDesc}
                       className="loginInput"
                       placeholder={t("emailOrMobileP")}
                     />
