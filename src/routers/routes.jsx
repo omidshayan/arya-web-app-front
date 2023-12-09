@@ -14,6 +14,7 @@ import Dashboard from '../pages/userPanel/dashboard/Dashboard';
 import MyLilam from '../pages/userPanel/myLilam/MyLilam';
 import DeactiveLilam from './../pages/userPanel/deactiveLilam/DeactiveLilam';
 import UserInfo from '../components/userPanel/userInfo/UserInfo';
+import CreateLilam from '../components/userPanel/lilam/createLilam/CreateLilam';
 
 
 const routes = [
@@ -32,6 +33,9 @@ const routes = [
     // userPanel
     { path: '/dashboard', element: <Dashboard />},
     { path: '/userInfo', element: <UserInfo />},
+
+    // lilam
+    { path: '/create-lilam', element: <CreateLilam />},
     { path: '/myLilam', element: <MyLilam />},
     { path: '/deactiveLilam', element: <DeactiveLilam />},
 

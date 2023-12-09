@@ -24,13 +24,19 @@ export default function UserSidebar() {
         </div>
         <div className="userSidebarSingleItems p-t">
           <Link to={'/userInfo'}>
-            <div className="f-w color d-flex-align">
+            <div className="f-w color d-flex-align m-b5">
               <FaInfoCircle className="m-l10"/>
               مشخصات من
             </div>
           </Link>
         </div>
+
         <BaseAccordion title={"لیلامی"} icon={<MdOutlineShoppingBag />}>
+
+        <Link to={"/create-lilam"} className="color accordionLink p-t6">
+            <BiSolidShow className="m5" />ثبت کالا
+          </Link>
+
           <Link to={"/myLilam"} className="color accordionLink p-t6">
             <BiSolidShow className="m5" />لیلام های من
           </Link>

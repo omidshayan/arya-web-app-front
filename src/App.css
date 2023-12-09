@@ -152,6 +152,9 @@ a{
   margin-right: 25px;
   color: red;
 }
+.m-c{
+  margin: 0 auto !important;
+}
 .font-icon{
   font-size: 30px;
 }

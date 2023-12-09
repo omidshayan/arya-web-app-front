@@ -1,6 +1,7 @@
 .userSidebar{
     width: 23%;
     height: auto;
+    margin-top: 30px;
 }
 .img-avatar{
     display: flex;
@@ -13,6 +14,7 @@
     border-radius: 50%;
 }
 .userSidebarSingleItems{
+    margin-top: 15px !important;
     margin-right: 16px;
 }
 .p-t{

@@ -10,15 +10,12 @@ import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
 import ImageUploader from "react-image-upload";
 import "react-image-upload/dist/index.css";
-import UserContext from './../../../Context/UserContext';
-
+import UserContext from "./../../../Context/UserContext";
 
 export default function UserInfo() {
-  
-  const {userData} = useContext(UserContext);
+  const { userData } = useContext(UserContext);
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-
 
   const [ProfileImage, setProfileImage] = useState();
 
@@ -125,20 +122,14 @@ export default function UserInfo() {
                   </div>
                 </div>
               </div>
-              
 
-              <ImageUploader
-                style={{
-                  height: 200,
-                  width: 200,
-                  background: "rgb(0 182 255)",
-                }}
-                deleteIcon={<MdEmail />}
-                uploadIcon={<MdEmail />}
-              />
-
-
-
+              <div className="Profiletitle">اضافه کردن عکس</div>
+              <div className="UserProfile">
+                <ImageUploader
+                  deleteIcon={<MdEmail />}
+                  uploadIcon={<MdEmail />}
+                />
+              </div>
 
               {!loading && (
                 <div className="">
