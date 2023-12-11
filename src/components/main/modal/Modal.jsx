@@ -6,6 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import './Modal.css';
+
+
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -24,7 +27,7 @@ export default function AlertDialogSlide({modalName, title,children}) {
 
   return (
     <React.Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button className='cateLilam' variant="outlined" onClick={handleClickOpen}>
         {modalName}
       </Button>
       <Dialog
@@ -36,7 +39,7 @@ export default function AlertDialogSlide({modalName, title,children}) {
       >
         <DialogTitle>{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
+          <DialogContentText id="alert-dialog-slide-description ">
             {children}
           </DialogContentText>
         </DialogContent>

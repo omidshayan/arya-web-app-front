@@ -8,8 +8,6 @@ import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../../Validations/register";
 import Loading from "./../../../loading/Loading";
 import { useTranslation } from "react-i18next";
-import ImageUploader from "react-image-upload";
-import "react-image-upload/dist/index.css";
 import Modal from "./../../../main/modal/Modal";
 import AutoComplete from './../../../main/autoComplete/AutoComplete';
 
@@ -25,7 +23,7 @@ export default function CreateLilam() {
       <UserContent title={"ثبت کالای لیلامی"}>
         <div className="createLilam">
           <Helmet>
-            <title> مشخصات پنل کاربری</title>
+            <title>ثبت لیلامی</title>
           </Helmet>
 
           <Formik
@@ -127,10 +125,7 @@ export default function CreateLilam() {
 
                 <div className="Profiletitle">اضافه کردن عکس</div>
                 <div className="UserProfile">
-                  <ImageUploader
-                    deleteIcon={<MdEmail />}
-                    uploadIcon={<MdEmail />}
-                  />
+               
                 </div>
 
                 {!loading && (

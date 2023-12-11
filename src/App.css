@@ -20,6 +20,7 @@
   inset -5px -5px 7px #181e2b;
   --active-shadow: inset 5px 5px 7px #0c1017,
   inset -5px -5px 7px #181e2b;
+  --bg: #131923;
 }
 .lightMode{
   --main-color: #E6E7EE;
@@ -28,7 +29,7 @@
   --border-color: #374151;
   --text-color: #272626;
   --active: #1F2937;
-
+  --bg: #E6E7EE;
   --shadow: 5px 5px 13px #a6a6ab,
   -5px -5px 13px #ffffff;
   --gradient: linear-gradient(145deg, #E6E7EE, #E6E7EE);

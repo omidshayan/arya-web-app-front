@@ -8,16 +8,17 @@ import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../Validations/register";
 import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
-import ImageUploader from "react-image-upload";
-import "react-image-upload/dist/index.css";
 import UserContext from "./../../../Context/UserContext";
+
+import React from "react";
+import ImageUploader from "react-images-upload";
 
 export default function UserInfo() {
   const { userData } = useContext(UserContext);
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
-  const [ProfileImage, setProfileImage] = useState();
+  const [profileImage, setProfileImage] = useState();
 
   return (
     <>
@@ -126,8 +127,20 @@ export default function UserInfo() {
               <div className="Profiletitle">اضافه کردن عکس</div>
               <div className="UserProfile">
                 <ImageUploader
-                  deleteIcon={<MdEmail />}
-                  uploadIcon={<MdEmail />}
+                  withIcon={true}
+                  withPreview={true}
+                  buttonText="Choose images"
+                  imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                  maxFileSize={5242880}
+                  maxNumber="5"
+                  onChange={(e) => {
+                    console.log(e);
+                    setProfileImage(e);
+                  }}
+                  type="file"
+                  label="png - gif - jpg حداکثر حجم عکس 1 مگابایت | فرمت عکس ها "
+                  fileSizeError="حجم عکس بیش از حد مجاز است"
+                  fileTypeError="فرمت عکس"
                 />
               </div>
 

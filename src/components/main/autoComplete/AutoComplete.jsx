@@ -2,6 +2,8 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
+import './autoComplete.css';
+
 
 function sleep(duration) {
   return new Promise((resolve) => {
@@ -45,7 +47,7 @@ export default function Asynchronous() {
   return (
     <Autocomplete
       id="asynchronous-demo"
-      sx={{ width: 300 }}
+      sx={{ width: 320 }}
       open={open}
       onOpen={() => {
         setOpen(true);
@@ -60,12 +62,12 @@ export default function Asynchronous() {
       renderInput={(params) => (
         <TextField
           {...params}
-          label="Asynchronous"
+          label="دسته بندی ها"
           InputProps={{
             ...params.InputProps,
             endAdornment: (
               <React.Fragment>
-                {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                {loading ? <CircularProgress size={20} /> : null}
                 {params.InputProps.endAdornment}
               </React.Fragment>
             ),
