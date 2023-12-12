@@ -95,7 +95,7 @@ export default function LoginFrom() {
               <Form>
                 <div className="inputLable">{t("emailOrMobile")}</div>
                 <div className="inputItem">
-                  <MdEmail className="intpuIcon" />
+                  <MdEmail className="inputIcon" />
                   <Field
                     type="text"
                     name="emailOrMobile"
@@ -111,7 +111,7 @@ export default function LoginFrom() {
 
                 <div className="inputLable">{t("password")}</div>
                 <div className="inputItem">
-                  <FaKey className="intpuIcon" />
+                  <FaKey className="inputIcon" />
                   <Field
                     type="text"
                     name="password"

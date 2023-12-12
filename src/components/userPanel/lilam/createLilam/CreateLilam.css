@@ -1,0 +1,21 @@
+.cateSearch{
+    direction: rtl !important;
+    width: 400px;
+}
+.backInputCate{
+    width: 400px;
+    height: 30px;
+    box-shadow: var(--active-shadow);
+    margin: 7px auto 0 auto;
+    border-radius: 20px;
+    padding: 6px;
+}
+.showCatesLilam{
+    padding: 10px;
+    margin: 15px 0px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}

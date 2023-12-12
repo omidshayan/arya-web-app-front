@@ -36,7 +36,7 @@ export default function ForgateForm() {
               <Form>
                 <div className="inputLable">{t("email")}</div>
                 <div className="inputItem">
-                  <MdEmail className="intpuIcon" />
+                  <MdEmail className="inputIcon" />
                   <Field
                     type="text"
                     name="email"

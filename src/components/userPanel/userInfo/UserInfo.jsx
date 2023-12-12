@@ -47,7 +47,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">نام و تخلص</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="intpuIcon" />
+                    <MdEmail className="inputIcon" />
                     <Field
                       type="text"
                       name="name"
@@ -64,7 +64,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">ایمیل</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="intpuIcon" />
+                    <MdEmail className="inputIcon" />
                     <Field
                       type="email"
                       name="email"
@@ -81,7 +81,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">موبایل</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="intpuIcon" />
+                    <MdEmail className="inputIcon" />
                     <Field
                       type="number"
                       name="mobile"
@@ -98,7 +98,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">آدرس</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="intpuIcon" />
+                    <MdEmail className="inputIcon" />
                     <Field
                       type="text"
                       name="address"
@@ -112,7 +112,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">معرفی کوتاه</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="intpuIcon" />
+                    <MdEmail className="inputIcon" />
                     <Field
                       type="text"
                       name="shortDesc"

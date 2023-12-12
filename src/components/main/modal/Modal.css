@@ -9,7 +9,8 @@
     font-family: 'vazir' !important;
     border-radius: 10px !important;
 }
-.cateLilam:hover{
-    border: none;
-    box-shadow: var(--active-shadow);
+.modalStyle{
+    background-color: var(--bg) !important;
+    color: var(--text-color) !important;
+
 }

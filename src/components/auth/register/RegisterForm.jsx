@@ -66,7 +66,7 @@ export default function RegisterFrom() {
               <Form>
                 <div className="inputLable">{t("name")}</div>
                 <div className="inputItem">
-                  <FaUser className="intpuIcon" />
+                  <FaUser className="inputIcon" />
                   <Field
                     type="text"
                     name="name"
@@ -80,7 +80,7 @@ export default function RegisterFrom() {
 
                 <div className="inputLable"> {t("mobile")}</div>
                 <div className="inputItem">
-                  <MdOutlineNumbers className="intpuIcon" />
+                  <MdOutlineNumbers className="inputIcon" />
                   <Field
                     type="text"
                     name="mobile"
@@ -94,7 +94,7 @@ export default function RegisterFrom() {
 
                 <div className="inputLable">{t("email")} </div>
                 <div className="inputItem">
-                  <MdEmail className="intpuIcon" />
+                  <MdEmail className="inputIcon" />
                   <Field
                     type="text"
                     name="email"
@@ -108,7 +108,7 @@ export default function RegisterFrom() {
 
                 <div className="inputLable">{t("password")}</div>
                 <div className="inputItem">
-                  <FaKey className="intpuIcon" />
+                  <FaKey className="inputIcon" />
                   <Field
                     type="text"
                     name="password"

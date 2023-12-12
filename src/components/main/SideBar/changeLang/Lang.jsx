@@ -18,7 +18,7 @@ export default function Lang() {
   return (
     <>
       <div className="selectLang">
-      <MdEmail className="intpuIcon"/>
+      <MdEmail className="inputIcon"/>
         <span className="changeLangTitle">{t('selectLnag')}</span>
         <select className="selectTagLang" onChange={changeLang}>
           <option className="optionLang" value="fa">{t('dari')}</option>

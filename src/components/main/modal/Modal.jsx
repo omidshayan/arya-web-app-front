@@ -30,20 +30,20 @@ export default function AlertDialogSlide({modalName, title,children}) {
       <Button className='cateLilam' variant="outlined" onClick={handleClickOpen}>
         {modalName}
       </Button>
-      <Dialog
+      <Dialog 
         open={open}
         TransitionComponent={Transition}
         keepMounted
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>{title}</DialogTitle>
-        <DialogContent>
+        <DialogTitle className="modalStyle">{title}</DialogTitle>
+        <DialogContent className="modalStyle">
           <DialogContentText id="alert-dialog-slide-description ">
             {children}
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
+        <DialogActions className="modalStyle">
           <Button onClick={handleClose}>انجام شد</Button>
         </DialogActions>
       </Dialog>
