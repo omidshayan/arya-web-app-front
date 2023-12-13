@@ -168,7 +168,9 @@ a{
 .a-u-s{
   color: var(--sub-color) !important;
 }
-
+.sub-color{
+  color: var(--sub-color) !important;
+}
 
 /* .inputError{
   border: 1px solid rgba(255, 0, 0, 0.267);

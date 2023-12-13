@@ -10,6 +10,7 @@
     border-radius: 10px !important;
 }
 .modalStyle{
+    font-family: 'vazir' !important;
     background-color: var(--bg) !important;
     color: var(--text-color) !important;
 

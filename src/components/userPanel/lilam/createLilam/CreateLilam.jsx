@@ -85,7 +85,7 @@ export default function CreateLilam() {
                     {!showCates && (
                       <>
                         <div className="showCatesLilam color" onClick={() => setShowCates(true)}>
-                          <div className="color d-flex-all">
+                          <div className="sub-color d-flex-all">
                             <IoIosArrowForward className="m-l10" />  برگشت 
                           </div>
                         </div>
@@ -93,40 +93,40 @@ export default function CreateLilam() {
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <FaMobileScreenButton className="m-l10" /> موبایل و
-                            تبلت ها
+                            تبلت 
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
-                            <BiCategory className="m-l10" /> کامپیوتر ها
+                            <BiCategory className="m-l10" /> کامپیوتر 
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <BiSolidCameraHome className="m-l10" /> لوازم خانه
-                            ها
+                            
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
-                            <FaCar className="m-l10" /> وسیله نقلیه ها
+                            <FaCar className="m-l10" /> وسیله نقلیه 
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <TbBuildingEstate className="m-l10" /> خانه و زمین
-                            ها
+                            
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <MdOutlineArticle className="m-l10" /> لوازم التحریر
-                            ها
+                            
                           </div>
                           <IoIosArrowBack />
                         </div>
