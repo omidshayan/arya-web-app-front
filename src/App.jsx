@@ -1,9 +1,10 @@
-import Main from "./components/main/Main";
 import Routes from "./routers/routes";
 import { useRoutes } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer } from "react-toastify";
 import UserInfo from "./Context/UserInfo";
+
+import Main from "./components/main/Main";
 import "./App.css";
 
 function App() {
@@ -11,7 +12,6 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
       <UserInfo>
         <Main />
         {routes}

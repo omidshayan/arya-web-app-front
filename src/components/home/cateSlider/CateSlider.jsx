@@ -1,5 +1,3 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -9,25 +7,24 @@ import "swiper/css/pagination";
 
 import "./CateSlider.css";
 
-import '../../../i18n';
-import { useTranslation } from 'react-i18next';
-
+import "../../../i18n";
+import { useTranslation } from "react-i18next";
 
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper/modules";
 
 export default function HomeSlider() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
       <div className="homeSlider">
-        <div className="sliderTitle">{t('favoriteCate')}</div>
+        <div className="sliderTitle">{t("favoriteCate")}</div>
         <Swiper
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
@@ -38,7 +35,6 @@ export default function HomeSlider() {
             depth: 100,
             modifier: 1,
             slideShadows: true,
-            
           }}
           pagination={true}
           modules={[EffectCoverflow, Pagination]}

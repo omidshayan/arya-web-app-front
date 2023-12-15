@@ -1,73 +1,67 @@
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import Avatar from "@mui/material/Avatar";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
+import { Dropdown } from "antd";
+import { CgProfile } from "react-icons/cg";
 import "./UserPanel.css";
-import UserContext from './../../../Context/UserContext';
-import {useContext, useState} from 'react'
+import { Link } from "react-router-dom";
+import UserContext from "../../../Context/UserContext";
+import { useContext } from "react";
 
-function ResponsiveAppBar() {
-  const [anchorElUser, setAnchorElUser] = useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  const {userData, logout} = useContext(UserContext);
-  
+function UserPanel() {
+  const { userData, logout } = useContext(UserContext);
+  const items = [
+    {
+      key: "1",
+      label: (
+        <div rel="noopener noreferrer" to="" className="color f-w m-t5">
+          {userData.name}
+          <hr className="hr"/>
+        </div>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <Link rel="noopener noreferrer" to="/dashboard" className="color f-w">
+          <CgProfile className="m-l10"/>
+          پروفایل
+        </Link>
+      ),
+    },
+    {
+      key: "3",
+      label: (
+        <Link rel="noopener noreferrer" to="" className="color f-w">
+           <CgProfile className="m-l10"/>
+          تغییر رمزعبور
+        </Link>
+      ),
+    },
+    {
+      key: "4",
+      label: (
+        <div rel="noopener noreferrer" className="color f-w" onClick={logout}>
+           <CgProfile className="m-l10"/>
+          خروج
+        </div>
+      ),
+    },
+  ];
 
   return (
-    <Box sx={{ flexGrow: 2 }}>
-      <Tooltip title="پروفایل">
-        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="img/img-3.jpg" />
-        </IconButton>
-      </Tooltip>
-      <Menu
-        sx={{ mt: "45px" }}
-        id="menu-appbar"
-        anchorEl={anchorElUser}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
+    <>
+      <Dropdown className="userPro"
+        menu={{
+          items,
         }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        open={Boolean(anchorElUser)}
-        onClose={handleCloseUserMenu}
+        placement="bottom"
+        arrow
       >
-        <div className="userNameAppbar">
-          {userData.name}
-        </div>
-        <MenuItem className="backMenuAppbar">
-          <Link to={"dashboard"} className="f-w colorMenuItem">
-            پروفایل
-          </Link>
-        </MenuItem>
-
-        <MenuItem>
-          <Link to={"dashboard"} className="f-w colorMenuItem">
-            تغییر رمزعبور
-          </Link>
-        </MenuItem>
-
-        <MenuItem onClick={logout}>
-          <span className="f-w colorMenuItem">
-            خروج
-          </span>
-        </MenuItem>
-      </Menu>
-    </Box>
+        <img
+          src="img/img-1.jpg"
+          alt="user profile"
+          className="userPhotoProfile"
+        />
+      </Dropdown>
+    </>
   );
 }
-export default ResponsiveAppBar;
+export default UserPanel;

@@ -21,8 +21,7 @@
     padding: 6px;
 }
 .UserProfile{
-    display: flex;
-    justify-content: center;
+   text-align: center;
 }
 .Profiletitle{
     margin: 10px 0;

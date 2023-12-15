@@ -3,22 +3,21 @@ import UserContent from "../userContent/UserContent";
 import "./UserInfo.css";
 import { Formik, Form, Field } from "formik";
 import { Helmet } from "react-helmet";
-import { FaKey } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../Validations/register";
 import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
 import UserContext from "./../../../Context/UserContext";
+import ImgUpload from './../../main/imgUpload/ImgUpload';
 
-import React from "react";
-import ImageUploader from "react-images-upload";
+// import ImageUploader from "react-images-upload";
 
 export default function UserInfo() {
   const { userData } = useContext(UserContext);
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
 
-  const [profileImage, setProfileImage] = useState();
+  // const [profileImage, setProfileImage] = useState();
 
   return (
     <>
@@ -54,6 +53,7 @@ export default function UserInfo() {
                       value={userData?.name}
                       className="loginInput"
                       placeholder={t("name")}
+                      initialValues={userData.name}
                     />
                   </div>
                   <span className="msgError">
@@ -126,7 +126,8 @@ export default function UserInfo() {
 
               <div className="Profiletitle">اضافه کردن عکس</div>
               <div className="UserProfile">
-                <ImageUploader
+                <ImgUpload />
+                {/* <ImageUploader
                   withIcon={true}
                   withPreview={true}
                   buttonText="Choose images"
@@ -141,7 +142,7 @@ export default function UserInfo() {
                   label="png - gif - jpg حداکثر حجم عکس 1 مگابایت | فرمت عکس ها "
                   fileSizeError="حجم عکس بیش از حد مجاز است"
                   fileTypeError="فرمت عکس"
-                />
+                /> */}
               </div>
 
               {!loading && (

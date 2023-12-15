@@ -9,12 +9,12 @@ import Forgate from './../pages/auth/forgate/Forgate';
 import LilamHome from './../pages/lilam/home/Home';
 import SingleLilam from './../pages/lilam/singleLilamPage/SingleLilam';
 
-// user panel routes
+// // user panel routes
 import Dashboard from '../pages/userPanel/dashboard/Dashboard';
-import MyLilam from '../pages/userPanel/myLilam/MyLilam';
-import DeactiveLilam from './../pages/userPanel/deactiveLilam/DeactiveLilam';
 import UserInfo from '../components/userPanel/userInfo/UserInfo';
 import CreateLilam from '../components/userPanel/lilam/createLilam/CreateLilam';
+// import MyLilam from '../pages/userPanel/myLilam/MyLilam';
+// import DeactiveLilam from './../pages/userPanel/deactiveLilam/DeactiveLilam';
 
 
 const routes = [
@@ -34,10 +34,10 @@ const routes = [
     { path: '/dashboard', element: <Dashboard />},
     { path: '/userInfo', element: <UserInfo />},
 
-    // lilam
+    // // lilam
     { path: '/create-lilam', element: <CreateLilam />},
-    { path: '/myLilam', element: <MyLilam />},
-    { path: '/deactiveLilam', element: <DeactiveLilam />},
+    // { path: '/myLilam', element: <MyLilam />},
+    // { path: '/deactiveLilam', element: <DeactiveLilam />},
 
 
     
