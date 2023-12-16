@@ -7,6 +7,7 @@ import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../../Validations/register";
 import Loading from "./../../../loading/Loading";
 import { useTranslation } from "react-i18next";
+import ConfirmModal from './../../../main/modals/ConfirmModal';
 
 
 import { CiSearch } from "react-icons/ci";
@@ -54,7 +55,9 @@ export default function CreateLilam() {
           >
             {({ touched, errors }) => (
               <Form>
-                <div className="d-flex-justify">modal</div>
+                <div className="d-flex-justify">
+                  <ConfirmModal modalName='انتخاب دسته بندی' modalTitle='انتخاب دسته بندی'/>
+                </div>
                 <div className="userInfo">
                   <div className="inputParent">
                     <div className="inputTitle">نام کالا</div>
