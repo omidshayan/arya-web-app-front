@@ -37,7 +37,6 @@ export default function UserInfo() {
           }}
           onSubmit={(values, actions) => {
             //   handleSubmit(values, actions);
-            console.log(values);
           }}
           validationSchema={userInfo}
         >

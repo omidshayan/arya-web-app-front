@@ -11,7 +11,6 @@ const Axios = axios.create({ baseURL: BaseUrl });
 
 export function getJwt() {
   let jwt = Cookies.get("accessToken");
-  console.log(jwt);
   return jwt;
 }
 

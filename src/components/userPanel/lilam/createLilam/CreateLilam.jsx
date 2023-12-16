@@ -1,9 +1,6 @@
-import React from "react";
 import UserContent from "../../userContent/UserContent";
-
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form, Field } from "formik";
-import { Helmet } from "react-helmet";
 import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../../Validations/register";
 import Loading from "./../../../loading/Loading";
@@ -12,13 +9,13 @@ import Modal from "./../../../main/modal/Modal";
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { BiCategory } from "react-icons/bi";
-
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { MdOutlineArticle } from "react-icons/md";
 import { FaCar } from "react-icons/fa";
 import { TbBuildingEstate } from "react-icons/tb";
 import { BiSolidCameraHome } from "react-icons/bi";
-
+import { getApi } from "./../../../../services/Api/api";
+import ImageUploader from "react-images-upload";
 import "./CreateLilam.css";
 
 export default function CreateLilam() {
@@ -31,14 +28,27 @@ export default function CreateLilam() {
   const showCateHandle = () => {
     setShowCates(false);
   };
+
+  const [categories, setGacegories] = useState([]);
+
+  const showCatesHandle = async () => {
+    setLoading(true);
+    const path = "categories";
+
+    try {
+      const { data } = await getApi(path);
+      setLoading(false);
+      setGacegories(data.data);
+    } catch (error) {
+      // console.log(error);
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <UserContent title={"ثبت کالای لیلامی"}>
         <div className="createLilam">
-          <Helmet>
-            <title>ثبت لیلامی</title>
-          </Helmet>
-
           <Formik
             initialValues={{
               name: "",
@@ -74,7 +84,10 @@ export default function CreateLilam() {
                         className="showCatesLilam color"
                         onClick={showCateHandle}
                       >
-                        <div className="color d-flex-all">
+                        <div
+                          className="color d-flex-all"
+                          onClick={showCatesHandle}
+                        >
                           <BiCategory className="m-l10" /> نمایش همه دسته بندی
                           ها
                         </div>
@@ -84,49 +97,66 @@ export default function CreateLilam() {
 
                     {!showCates && (
                       <>
-                        <div className="showCatesLilam color" onClick={() => setShowCates(true)}>
+                        <div
+                          className="showCatesLilam color"
+                          onClick={() => setShowCates(true)}
+                        >
                           <div className="sub-color d-flex-all">
-                            <IoIosArrowForward className="m-l10" />  برگشت 
+                            <IoIosArrowForward className="m-l10" /> برگشت
                           </div>
+                        </div>
+
+                        {/* loading */}
+                        {loading && (
+                          <div className="loadinAuth">
+                            <Loading />
+                          </div>
+                        )}
+
+                        <div className="showCatesLilam color">
+                          <div className="color d-flex-all">
+                            <FaMobileScreenButton className="m-l10" />
+                            {categories.map((category) => {
+                              return category.name;
+                            })}
+                          </div>
+                          <IoIosArrowBack />
                         </div>
 
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <FaMobileScreenButton className="m-l10" /> موبایل و
-                            تبلت 
+                            تبلت
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
-                            <BiCategory className="m-l10" /> کامپیوتر 
+                            <BiCategory className="m-l10" /> کامپیوتر
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <BiSolidCameraHome className="m-l10" /> لوازم خانه
-                            
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
-                            <FaCar className="m-l10" /> وسیله نقلیه 
+                            <FaCar className="m-l10" /> وسیله نقلیه
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <TbBuildingEstate className="m-l10" /> خانه و زمین
-                            
                           </div>
                           <IoIosArrowBack />
                         </div>
                         <div className="showCatesLilam color">
                           <div className="color d-flex-all">
                             <MdOutlineArticle className="m-l10" /> لوازم التحریر
-                            
                           </div>
                           <IoIosArrowBack />
                         </div>
@@ -210,8 +240,25 @@ export default function CreateLilam() {
                   </div>
                 </div>
 
-                <div className="Profiletitle">اضافه کردن عکس</div>
-                <div className="UserProfile"></div>
+                <div className="UserProfile">
+                  <ImageUploader
+                    className="tt"
+                    withIcon={true}
+                    withPreview={true}
+                    buttonText="انتخاب عکس برای محصول "
+                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    maxFileSize={5242880}
+                    maxNumber="5"
+                    onChange={(e) => {
+                      console.log(e);
+                      setProfileImage(e);
+                    }}
+                    type="file"
+                    label="حجم عکس از 1 ام بی نباید بیشتر باشد. فرمت عکس ( jpg - png - gif )"
+                    fileSizeError="حجم عکس بیش از حد مجاز است"
+                    fileTypeError="فرمت عکس"
+                  />
+                </div>
 
                 {!loading && (
                   <div className="">
