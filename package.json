@@ -1,7 +1,7 @@
 {
   "name": "arya-app",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3000",
@@ -10,8 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "^5.12.2",
-    "antd-img-crop": "^4.18.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.0",
     "axios": "^1.6.2",
     "formik": "^2.4.5",
     "i18next": "^23.7.11",
@@ -22,7 +23,9 @@
     "react-i18next": "^13.5.0",
     "react-icons": "^4.12.0",
     "react-image-gallery": "^1.3.0",
+    "react-images-upload": "^1.2.8",
     "react-router-dom": "^6.21.0",
+    "react-toastify": "^9.1.3",
     "swiper": "^11.0.5",
     "yup": "^1.3.3"
   },

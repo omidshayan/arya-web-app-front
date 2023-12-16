@@ -1,0 +1,17 @@
+.cateLilam{
+    box-shadow: var(--shadow);
+    background-color: var(--gradient);
+    color: var(--text-color) !important;
+    border: none !important;
+    font-size: 15px;
+    margin: 5px 0 20px 0 !important;
+    padding: 5px 50px !important;
+    font-family: 'vazir' !important;
+    border-radius: 10px !important;
+}
+.modalStyle{
+    font-family: 'vazir' !important;
+    background-color: var(--bg) !important;
+    color: var(--text-color) !important;
+
+}

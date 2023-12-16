@@ -1,3 +1,4 @@
+import React from "react";
 import "./indexCard.css";
 import { CiCreditCard1 } from "react-icons/ci";
 import { CiShop } from "react-icons/ci";
@@ -14,6 +15,7 @@ export default function IndexCard() {
   return (
     <>
       <div className="cardSection">
+
         <div className="cardItem">
           <Link to={"lilampage"}>
             <div>
@@ -24,31 +26,32 @@ export default function IndexCard() {
         </div>
 
         <div className="cardItem">
-          <Link to={"lilampage"}>
-            <div>
-              <CiShop fontSize={"large"} className="cardIcon" />
-            </div>
-            <div className="cardTitle">{t("shops")}</div>
+            <Link to={"lilampage"}>
+          <div>
+            <CiShop fontSize={"large"} className="cardIcon" />
+          </div>
+          <div className="cardTitle">{t("shops")}</div>
           </Link>
         </div>
 
         <div className="cardItem">
-          <Link to={"lilampage"}>
-            <div>
-              <CiAlignCenterH fontSize={"large"} className="cardIcon" />
-            </div>
-            <div className="cardTitle">{t("centers")}</div>
+            <Link to={"lilampage"}>
+          <div>
+            <CiAlignCenterH fontSize={"large"} className="cardIcon" />
+          </div>
+          <div className="cardTitle">{t("centers")}</div>
           </Link>
         </div>
 
         <div className="cardItem">
-          <Link to={"lilampage"}>
-            <div>
-              <FaPersonSkiing fontSize={"large"} className="cardIcon" />
-            </div>
-            <div className="cardTitle">{t("persons")}</div>
+            <Link to={"lilampage"}>
+          <div>
+            <FaPersonSkiing fontSize={"large"} className="cardIcon" />
+          </div>
+          <div className="cardTitle">{t("persons")}</div>
           </Link>
         </div>
+
       </div>
     </>
   );

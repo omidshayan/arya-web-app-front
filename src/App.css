@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'vazir';
-  src: url('../fonts//Vazir.ttf');
-  src: url('../fonts//vazir.eot');
-  src: url('../fonts//vazir.woff');
-  src: url('../fonts//vazir.woff2');
+  src: url('../public/fonts//Vazir.ttf');
+  src: url('../public/fonts//vazir.eot');
+  src: url('../public/fonts//vazir.woff');
+  src: url('../public/fonts//vazir.woff2');
 }
 :root{
   --main-color: #111827;
@@ -28,7 +28,7 @@
   --hover-sub-color: #3528c5;
   --border-color: #374151;
   --text-color: #272626;
-  --active: #d1d1d1;
+  --active: #1F2937;
   --bg: #E6E7EE;
   --shadow: 5px 5px 13px #a6a6ab,
   -5px -5px 13px #ffffff;
@@ -51,6 +51,10 @@ ul li{
 }
 a{
   text-decoration: none;
+}
+.border{
+  width: 90%;
+  border: 1px solid var(--border-color);
 }
 ::placeholder {
   font-family: 'vazir';
@@ -102,8 +106,8 @@ a{
   justify-content: center;
 }
 .d-flex-align{
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  align-items: center !important;
 }
 .d-flex-justify{
   display: flex;
@@ -113,7 +117,7 @@ a{
   font-weight: bold !important;
 }
 .m-l5{
-  margin-left: 5px;
+  margin-left: 5px !important;
 }
 .m-l10{
   margin-left: 10px;
@@ -167,9 +171,7 @@ a{
 .sub-color{
   color: var(--sub-color) !important;
 }
-.hr{
-  border: 1px solid var(--border-color);
-}
+
 /* .inputError{
   border: 1px solid rgba(255, 0, 0, 0.267);
   -webkit-box-shadow: 0px 0px 4px -1px rgba(255,0,0,1);

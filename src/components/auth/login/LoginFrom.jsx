@@ -12,22 +12,37 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { loginSchema } from "../../../Validations/register";
 import { useContext, useState, useEffect } from "react";
-import { postApi } from "../../../services/Api/api";
+import { postApi, getApi } from "../../../services/Api/api";
 import UserContext from "../../../Context/UserContext";
+
+
 
 export default function LoginFrom() {
   const { t } = useTranslation();
 
-  const { getUserData, isLoggdIn } = useContext(UserContext);
+
+  // const isAutorize = async () => {
+  //   const path = "auth/isAutorize";
+  //   try {
+  //     const data = await getApi(path);
+  //     console.log(data)
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const {getUserData, isLoggdIn} = useContext(UserContext);
   const [loading, setLoading] = useState(false);
+
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggdIn) {
-      navigate("/");
+      navigate('/');
     }
   }, [isLoggdIn]);
+
 
   const handleSubmit = async (values, actions) => {
     setLoading(true);
@@ -35,13 +50,14 @@ export default function LoginFrom() {
     const body = values;
 
     try {
-      const { data } = await postApi(path, body);
+      const { status, data } = await postApi(path, body);
       setCookie("accessToken", data.data.accessToken);
       setCookie("refreshToken", data.data.refreshToken);
 
       getUserData();
-      
+      // isAutorize();
       actions.resetForm();
+
       navigate("/");
       setLoading(false);
     } catch (error) {
@@ -107,7 +123,7 @@ export default function LoginFrom() {
                   {" "}
                   {touched.password && errors.password && errors.password}
                 </span>
-
+                  
                 <div className="loginBottom">
                   <Link to={"/forgate"}>
                     <div className="forgetText">{t("forgatPassword")}</div>

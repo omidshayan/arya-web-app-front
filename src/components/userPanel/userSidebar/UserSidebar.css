@@ -1,5 +1,29 @@
 .userSidebar{
-    width: 25%;
+    width: 23%;
     height: auto;
     margin-top: 30px;
+}
+.img-avatar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.img-avatar img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.userSidebarSingleItems{
+    margin-top: 15px !important;
+    margin-right: 16px;
+}
+.p-t{
+    margin-top: 30px;
+}
+.accordionLink{
+    display: flex;
+    align-items: center;
+}
+.css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
+    margin: 10px 0 !important;
 }

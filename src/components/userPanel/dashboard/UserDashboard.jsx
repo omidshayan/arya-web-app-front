@@ -1,3 +1,4 @@
+import React from "react";
 import "./Dashboard.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import UserContent from './../userContent/UserContent';

@@ -3,7 +3,7 @@ import * as configData  from "./config.json";
 // import swal from "sweetalert";
 import Cookies from 'js-cookie';
 
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const {BaseUrl} = configData;
 const Axios = axios.create({ baseURL: BaseUrl });
@@ -48,16 +48,15 @@ Axios.interceptors.response.use(
     // console.log(error.response.data);
     error.response.data.errors.map(
       (err) =>{
-        // toast.error(err.message, {
-        //   position: "top-right",
-        //   autoClose: 5000,
-        //   hideProgressBar: false,
-        //   closeOnClick: true,
-        //   pauseOnHover: true,
-        //   draggable: true,
-        //   progress: undefined,
-        console.log(err)
-        // });
+        toast.error(err.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     )
 

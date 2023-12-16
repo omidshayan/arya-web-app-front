@@ -1,6 +1,8 @@
+import React from "react";
 import "./HomeLilam.css";
 import { MdEmail } from "react-icons/md";
 import CardLilam from "../card/CardLilam";
+import { BiSolidCategory } from "react-icons/bi";
 import Category from "../categories/Category";
 import { Link } from "react-router-dom";
 
