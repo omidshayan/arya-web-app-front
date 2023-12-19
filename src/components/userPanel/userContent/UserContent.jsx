@@ -5,7 +5,7 @@ import UserSidebar from "../userSidebar/UserSidebar";
 export default function UserContent({ title, children }) {
   return (
     <>
-      <div className="singleContainer d-flex">
+      <div className="singleContainer d-flex showSingle">
         <UserSidebar />
         <div className="userContent p-10">
           <h3>{title}</h3>

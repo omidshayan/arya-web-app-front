@@ -140,6 +140,9 @@ a{
 .p-10{
   padding: 10px;
 }
+.p-t10{
+  padding-top: 10px;
+}
 .p-t6{
   margin-top: 6px;
 }

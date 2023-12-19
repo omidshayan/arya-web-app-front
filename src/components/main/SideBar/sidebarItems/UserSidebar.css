@@ -1,5 +1,4 @@
 .userSidebar{
-    width: 23%;
     height: auto;
     margin-top: 30px;
 }
@@ -26,4 +25,13 @@
 }
 .css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
     margin: 10px 0 !important;
+}
+@media (max-width: 1024px){
+    .hideSidbar{
+        display: none;
+        visibility: hidden;
+    }
+    .showSingle{
+        justify-content: center;
+    }
 }

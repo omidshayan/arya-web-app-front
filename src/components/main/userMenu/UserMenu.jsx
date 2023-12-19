@@ -19,8 +19,8 @@ function UserMenuHeader() {
     </div>
     <hr className="border"/>
     <Link to="/dashboard" className="d-flex-align"> <IoMdPerson className="m-l5"/> پروفایل</Link>
-    <Link to="#"> <RiLockPasswordLine className="m-l5"/> تغییر رمزعبور</Link>
-    <Link to="#"> <IoMdExit className="m-l5"/> خروج</Link>
+    <Link to="#" className="d-flex-align"> <RiLockPasswordLine className="m-l5"/> تغییر رمزعبور</Link>
+    <Link to="#" className="d-flex-align"> <IoMdExit className="m-l5"/> خروج</Link>
   </div>
 </div>
     </>

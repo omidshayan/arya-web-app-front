@@ -245,9 +245,9 @@ export default function CreateLilam() {
                     className="tt"
                     withIcon={true}
                     withPreview={true}
-                    buttonText="انتخاب عکس برای محصول "
+                    buttonText="انتخاب عکس "
                     imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                    maxFileSize={5242880}
+                    maxFileSize={1000000}
                     maxNumber="5"
                     onChange={(e) => {
                       console.log(e);
@@ -256,7 +256,7 @@ export default function CreateLilam() {
                     type="file"
                     label="حجم عکس از 1 ام بی نباید بیشتر باشد. فرمت عکس ( jpg - png - gif )"
                     fileSizeError="حجم عکس بیش از حد مجاز است"
-                    fileTypeError="فرمت عکس"
+                    fileTypeError="انتخاب فرمت اشتباه"
                   />
                 </div>
 

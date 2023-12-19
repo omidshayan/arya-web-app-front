@@ -125,22 +125,23 @@ export default function UserInfo() {
 
               <div className="Profiletitle">اضافه کردن عکس</div>
               <div className="UserProfile">
-                <ImageUploader
-                  withIcon={true}
-                  withPreview={true}
-                  buttonText="Choose images"
-                  imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                  maxFileSize={5242880}
-                  maxNumber="5"
-                  onChange={(e) => {
-                    console.log(e);
-                    setProfileImage(e);
-                  }}
-                  type="file"
-                  label="png - gif - jpg حداکثر حجم عکس 1 مگابایت | فرمت عکس ها "
-                  fileSizeError="حجم عکس بیش از حد مجاز است"
-                  fileTypeError="فرمت عکس"
-                />
+              <ImageUploader
+                    className="tt"
+                    withIcon={true}
+                    withPreview={true}
+                    buttonText="انتخاب عکس "
+                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                    maxFileSize={1000000}
+                    maxNumber="1"
+                    onChange={(e) => {
+                      console.log(e);
+                      setProfileImage(e);
+                    }}
+                    type="file"
+                    label="حجم عکس از 1 ام بی نباید بیشتر باشد. فرمت عکس ( jpg - png - gif )"
+                    fileSizeError="حجم عکس بیش از حد مجاز است"
+                    fileTypeError="انتخاب فرمت اشتباه"
+                  />
               </div>
 
               {!loading && (

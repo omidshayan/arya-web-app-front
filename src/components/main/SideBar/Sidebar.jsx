@@ -1,23 +1,25 @@
 import "./Sidebar.css";
 import { IoMdClose } from "react-icons/io";
-
-import { FaHome } from "react-icons/fa";
-import { MdRoundaboutRight } from "react-icons/md";
-import { IoIosContact } from "react-icons/io";
-import { MdCategory } from "react-icons/md";
+import SidebarItems from "./sidebarItems/SidebarItems";
 import { Link } from "react-router-dom";
 import Lang from "./changeLang/Lang";
+import PropTypes from 'prop-types';
 
 import "./../../../i18n";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 
 export default function Sidebar({ showSlider, closeSlider }) {
+  Sidebar.propTypes = {
+    showSlider: PropTypes.bool.isRequired,
+    closeSlider: PropTypes.bool.isRequired,
+  };
+
   const { t } = useTranslation();
 
   // start handle Theme Mode
   const [theme, setTheme] = useState(false);
-  
+
   const handle = () => {
     setTheme(!theme);
   };
@@ -53,30 +55,7 @@ export default function Sidebar({ showSlider, closeSlider }) {
 
         <hr className="border" />
         <div className="sidebarItems">
-          <Link to={"/"}>
-            <div className="siebarItem">
-              <FaHome className="sidebarIcon" />
-              <span className="sidebarName">{t("homePage")}</span>
-            </div>
-          </Link>
-          <a href="#">
-            <div className="siebarItem">
-              <MdCategory className="sidebarIcon" />
-              <span className="sidebarName">{t("category")}</span>
-            </div>
-          </a>
-          <a href="#">
-            <div className="siebarItem">
-              <MdRoundaboutRight className="sidebarIcon" />
-              <span className="sidebarName">{t("about")} </span>
-            </div>
-          </a>
-          <a href="#">
-            <div className="siebarItem">
-              <IoIosContact className="sidebarIcon" />
-              <span className="sidebarName">{t("contact")}</span>
-            </div>
-          </a>
+          <SidebarItems />
         </div>
 
         <hr className="border" />
