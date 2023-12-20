@@ -1,8 +1,6 @@
 import "./UserSidebar.css";
 import BaseAccordion from "./../../accourdion/Accordion";
 import { Link } from "react-router-dom";
-import { BiSolidShow } from "react-icons/bi";
-import { MdShowChart } from "react-icons/md";
 import { MdDashboard } from "react-icons/md";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
@@ -31,35 +29,43 @@ export default function UserSidebar() {
             </Link>
           </div>
 
-          <BaseAccordion title={"لیلامی"} icon={<MdOutlineShoppingBag />}>
-            <Link to={"/create-lilam"} className="color accordionLink p-t6">
-              <BiSolidShow className="m5" />
+          <BaseAccordion
+            title={"لیلامی"}
+            icon={<MdOutlineShoppingBag />}
+            className="bb"
+          >
+            <Link
+              to={"/create-lilam"}
+              className="color accordionLink p-t6 m-r25 font-size"
+            >
               ثبت کالا
             </Link>
 
-            <Link to={"/myLilam"} className="color accordionLink p-t6">
-              <BiSolidShow className="m5" />
+            <Link
+              to={"/myLilam"}
+              className="color accordionLink p-t6 m-r25 font-size"
+            >
               لیلام های من
             </Link>
 
-            <Link to={"/deactiveLilam"} className="color accordionLink p-t6">
-              <BiSolidShow className="m5" />
+            <Link
+              to={"/deactiveLilam"}
+              className="color accordionLink p-t6 m-r25 font-size"
+            >
               لیلام های غیرفعال
             </Link>
 
-            <Link to={"/"} className="color accordionLink p-t6">
-              <MdShowChart className="m5" /> نمایش همه
-            </Link>
+            <Link to={"/"} className="color accordionLink p-t6"></Link>
           </BaseAccordion>
 
           {/* shop */}
           <BaseAccordion title={"فروشگاه ها"} icon={<MdShoppingCart />}>
-            <Link to={"/"} className="color accordionLink p-t6">
-              <BiSolidShow className="m5" /> نمایش همه
+            <Link to={"/"} className="color accordionLink p-t6 m-r25 font-size">
+              نمایش همه
             </Link>
 
-            <Link to={"/"} className="color accordionLink p-t6">
-              <MdShowChart className="m5" /> نمایش همه
+            <Link to={"/"} className="color accordionLink p-t6 m-r25 font-size">
+              نمایش همه
             </Link>
           </BaseAccordion>
 

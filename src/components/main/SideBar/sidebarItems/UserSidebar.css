@@ -23,6 +23,9 @@
     display: flex;
     align-items: center;
 }
+.hideSidbar{
+    width: 20%;
+}
 .css-o4b71y-MuiAccordionSummary-content.Mui-expanded{
     margin: 10px 0 !important;
 }
@@ -34,4 +37,7 @@
     .showSingle{
         justify-content: center;
     }
+}
+.css-15v22id-MuiAccordionDetails-root{
+    padding: 0px 8px 10px 8px !important;
 }

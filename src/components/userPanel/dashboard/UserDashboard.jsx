@@ -1,4 +1,3 @@
-import React from "react";
 import "./Dashboard.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import UserContent from './../userContent/UserContent';
@@ -25,12 +24,12 @@ export default function UserDashboard() {
           </div>
         </div>
         <h3>اطلاعیه ها</h3>
-        {/* <p>
+        <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
           reiciendis, veritatis nesciunt repellendus vitae deserunt libero
           eveniet ducimus commodi, in est, nam aperiam ex temporibus!
           Perferendis consectetur ab veritatis distinctio.
-        </p> */}
+        </p>
       </UserContent>
     </>
   );

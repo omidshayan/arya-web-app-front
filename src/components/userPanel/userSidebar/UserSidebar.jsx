@@ -4,7 +4,7 @@ export default function UserSidebar() {
   return (
     <>
       <div className='hideSidbar'>
-        <SidebarItems />
+        <SidebarItems/>
       </div>
     </>
   );

@@ -123,10 +123,13 @@ a{
   margin-left: 10px;
 }
 .m5{
-  margin: 5px;
+  margin: 5px !important;
 }
 .m-r10{
   margin-right: 10px;
+}
+.m-r25{
+  margin-right: 25px;
 }
 .m-t5{
   margin-top: 20px;
@@ -174,6 +177,41 @@ a{
 .sub-color{
   color: var(--sub-color) !important;
 }
+.font-size{
+  font-size: 15px;
+}
+@media (max-width: 900px){
+  .inputParent{
+      width: 100% !important;
+      display: block !important;
+  }
+}
+.ss{
+  background-color: red !important;
+  margin-right: 40px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* .inputError{
   border: 1px solid rgba(255, 0, 0, 0.267);
