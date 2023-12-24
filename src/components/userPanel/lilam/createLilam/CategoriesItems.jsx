@@ -10,50 +10,24 @@ import { useState } from "react";
 import Loading from "../../../loading/Loading";
 
 export default function CategoriesItems() {
-  const [showCates, setShowCates] = useState(true);
+  const [back, setBack] = useState(false);
+
+  const [showAllCategories, setShowAllCategories] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  // children categoies
-  // const getCategoryChildren = async (category) => {
-  //   setLoading(true);
-  //   const path = `categories/${category.id}`;
-  //   try {
-  //     const { data } = await getApi(path);
-  //     setLoading(false);
-  //     setGacegories(data.data);
-  //   } catch (error) {
-  //     // console.log(error);
-  //     setLoading(false);
-  //   }
-  // };
-
-  // main category
-  // const getAllMainCtegories = async () => {
-  //   setLoading(true);
-  //   const path = "categories";
-
-  //   try {
-  //     const { data } = await getApi(path, {mainCategories: 1});
-  //     setLoading(false);
-  //     setGacegories(data.data);
-  //   } catch (error) {
-  //     // console.log(error);
-  //     setLoading(false);
-  //   }
-  // };
-
-  const showCateHandle = () => {
-    setShowCates(false);
-  };
-
   const [categories, setGacegories] = useState([]);
+  const [showPrentsCategories, setShowPrentsCegories] = useState(true);
+  const [getChildren, setGetChildren] = useState([]);
 
-  const showCatesHandle = async () => {
+  // Get All Main categories
+  const getAllMainCtegories = async () => {
     setLoading(true);
-    const path = "categories";
-
+    setShowPrentsCegories(true);
+    setGetChildren([]);
+    setBack(false);
+    const path = "/categories/withoutPaginate";
     try {
-      const { data } = await getApi(path);
+      const { data } = await getApi(path, { mainCategories: 1 });
       setLoading(false);
       setGacegories(data.data);
     } catch (error) {
@@ -62,28 +36,38 @@ export default function CategoriesItems() {
     }
   };
 
+  // Get Children Categories
+  const getCategoryChildren = async (category) => {
+    setLoading(true);
+    setBack(true);
+    const path = `/categories/${category.id}`;
+    try {
+      const { data } = await getApi(path);
+      setShowPrentsCegories(false);
+      setGetChildren(data.data.children);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  const showMainCategories = () => {
+    setShowAllCategories(false);
+  };
+
   return (
     <>
-      {showCates && (
-        <div className="showCatesLilam color" onClick={showCateHandle}>
-          <div className="color d-flex-all" onClick={showCatesHandle}>
+      {showAllCategories && (
+        <div className="showCatesLilam color" onClick={showMainCategories}>
+          <div className="color d-flex-all" onClick={getAllMainCtegories}>
             <BiCategory className="m-l10" /> نمایش همه دسته بندی ها
           </div>
           <IoIosArrowBack />
         </div>
       )}
 
-      {!showCates && (
+      {!showAllCategories && (
         <>
-          <div
-            className="showCatesLilam color"
-            onClick={() => setShowCates(true)}
-          >
-            <div className="sub-color d-flex-all">
-              <IoIosArrowForward className="m-l10" /> برگشت
-            </div>
-          </div>
-
           {/* loading */}
           {loading && (
             <div className="loadinAuth">
@@ -91,23 +75,49 @@ export default function CategoriesItems() {
             </div>
           )}
 
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <FaMobileScreenButton className="m-l10" />
-              {categories.map((category) => {
-                return (
-                  <>
-                    <span onClick={() => showCatesHandle(category)}>
+          {/* Main categories */}
+          {showPrentsCategories &&
+            categories.map((category) => {
+              return (
+                <>
+                  <div className="showCatesLilam color">
+                    <div className="color d-flex-all">
+                      <FaMobileScreenButton className="m-l10" />
+                      <span onClick={() => getCategoryChildren(category)}>
+                        {category.name}
+                      </span>
+                    </div>
+                    <IoIosArrowBack />
+                  </div>
+                </>
+              );
+            })}
+
+          {/* Show Children Categories */}
+          {back && (
+            <div className="showCatesLilam color" onClick={getAllMainCtegories}>
+              <div className="sub-color d-flex-all">
+                <IoIosArrowForward className="m-l10" /> برگشت
+              </div>
+            </div>
+          )}
+          {getChildren.map((category) => {
+            return (
+              <>
+                <div className="showCatesLilam color">
+                  <div className="color d-flex-all">
+                    <FaMobileScreenButton className="m-l10" />
+                    <span onClick={() => getCategoryChildren(category)}>
                       {category.name}
                     </span>
-                  </>
-                );
-              })}
-            </div>
-            <IoIosArrowBack />
-          </div>
+                  </div>
+                  <IoIosArrowBack />
+                </div>
+              </>
+            );
+          })}
 
-          <div className="showCatesLilam color">
+          {/* <div className="showCatesLilam color">
             <div className="color d-flex-all">
               <FaMobileScreenButton className="m-l10" /> موبایل و تبلت
             </div>
@@ -142,7 +152,7 @@ export default function CategoriesItems() {
               <MdOutlineArticle className="m-l10" /> لوازم التحریر
             </div>
             <IoIosArrowBack />
-          </div>
+          </div> */}
         </>
       )}
     </>
