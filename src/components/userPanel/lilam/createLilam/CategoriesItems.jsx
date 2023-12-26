@@ -6,7 +6,7 @@ import { FaCar } from "react-icons/fa";
 import { TbBuildingEstate } from "react-icons/tb";
 import { BiSolidCameraHome } from "react-icons/bi";
 import { getApi } from "../../../../services/Api/api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
 
 export default function CategoriesItems() {
