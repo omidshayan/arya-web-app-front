@@ -1,39 +1,35 @@
 import { BiCategory } from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaMobileScreenButton } from "react-icons/fa6";
+import { MdOutlineArticle } from "react-icons/md";
+import { FaCar } from "react-icons/fa";
+import { TbBuildingEstate } from "react-icons/tb";
+import { BiSolidCameraHome } from "react-icons/bi";
 import { getApi } from "../../../../services/Api/api";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
 
 export default function CategoriesItems() {
   const [back, setBack] = useState(false);
 
+  const [showAllCategories, setShowAllCategories] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const [showCategories, setShowCategories] = useState(true);
-
-
-
-  const [maincategories, setMainCegories] = useState([]);
-  const [categories, setCategories] = useState([]);
-  
+  const [categories, setGacegories] = useState([]);
   const [showPrentsCategories, setShowPrentsCegories] = useState(true);
-
-  const [Children, setChildren] = useState([]);
-
-  const [selectedCategory, setSelectedCategory] = useState([]);
+  const [getChildren, setGetChildren] = useState([]);
 
   // Get All Main categories
   const getAllMainCtegories = async () => {
     setLoading(true);
     setShowPrentsCegories(true);
-    setChildren([]);
+    setGetChildren([]);
     setBack(false);
     const path = "/categories/withoutPaginate";
     try {
       const { data } = await getApi(path, { mainCategories: 1 });
       setLoading(false);
-      setMainCegories(data.data);
+      setGacegories(data.data);
     } catch (error) {
       // console.log(error);
       setLoading(false);
@@ -42,33 +38,26 @@ export default function CategoriesItems() {
 
   // Get Children Categories
   const getCategoryChildren = async (category) => {
-    console.log('main line 43',category)
-    setSelectedCategory(category);
-    console.log(selectedCategory);
     setLoading(true);
     setBack(true);
     const path = `/categories/${category.id}`;
     try {
       const { data } = await getApi(path);
       setShowPrentsCegories(false);
-      setChildren(data.data.children);
+      setGetChildren(data.data.children);
       setLoading(false);
     } catch (error) {
       setLoading(false);
     }
   };
 
-const handle = () =>{
-  console.log('handle',selectedCategory);
-}
-
   const showMainCategories = () => {
-    setShowCategories(false);
+    setShowAllCategories(false);
   };
 
   return (
     <>
-      {showCategories && (
+      {showAllCategories && (
         <div className="showCatesLilam color" onClick={showMainCategories}>
           <div className="color d-flex-all" onClick={getAllMainCtegories}>
             <BiCategory className="m-l10" /> نمایش همه دسته بندی ها
@@ -77,7 +66,7 @@ const handle = () =>{
         </div>
       )}
 
-      {!showCategories && (
+      {!showAllCategories && (
         <>
           {/* loading */}
           {loading && (
@@ -88,7 +77,7 @@ const handle = () =>{
 
           {/* Main categories */}
           {showPrentsCategories &&
-            maincategories.map((category) => {
+            categories.map((category) => {
               return (
                 <>
                   <div className="showCatesLilam color">
@@ -106,13 +95,13 @@ const handle = () =>{
 
           {/* Show Children Categories */}
           {back && (
-            <div className="showCatesLilam color" onClick={handle}>
+            <div className="showCatesLilam color" onClick={getAllMainCtegories}>
               <div className="sub-color d-flex-all">
                 <IoIosArrowForward className="m-l10" /> برگشت
               </div>
             </div>
           )}
-          {Children.map((category) => {
+          {getChildren.map((category) => {
             return (
               <>
                 <div className="showCatesLilam color">
