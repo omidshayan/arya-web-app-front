@@ -58,9 +58,6 @@ export default function CategoriesItems() {
     }
   };
 
-const handle = () =>{
-  console.log('handle',selectedCategory);
-}
 
   const showMainCategories = () => {
     setShowCategories(false);
@@ -106,7 +103,7 @@ const handle = () =>{
 
           {/* Show Children Categories */}
           {back && (
-            <div className="showCatesLilam color" onClick={handle}>
+            <div className="showCatesLilam color" onClick={getAllMainCtegories}>
               <div className="sub-color d-flex-all">
                 <IoIosArrowForward className="m-l10" /> برگشت
               </div>
