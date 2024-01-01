@@ -1,7 +1,16 @@
 import "./Dashboard.css";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import UserContent from './../userContent/UserContent';
+import { useContext } from "react";
+import UserContext from './../../../Context/UserContext';
+import {useNavigate} from 'react-router-dom';
+
 export default function UserDashboard() {
+  const test = useContext(UserContext);
+  if(!test.isLoggdIn){
+    const navigate = useNavigate();
+
+  }
   return (
     <>
       <UserContent title={'داشبورد'}>

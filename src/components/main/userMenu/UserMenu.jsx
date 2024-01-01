@@ -20,7 +20,7 @@ function UserMenuHeader() {
     <hr className="border"/>
     <Link to="/dashboard" className="d-flex-align"> <IoMdPerson className="m-l5"/> پروفایل</Link>
     <Link to="#" className="d-flex-align"> <RiLockPasswordLine className="m-l5"/> تغییر رمزعبور</Link>
-    <Link to="#" className="d-flex-align"> <IoMdExit className="m-l5"/> خروج</Link>
+    <div onClick={logout}><Link className="d-flex-align"> <IoMdExit className="m-l5"/> خروج</Link></div>
   </div>
 </div>
     </>
