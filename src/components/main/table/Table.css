@@ -11,10 +11,6 @@
   .tableCulomn{
     border-bottom: 1px solid var(--border-color);
   }
-.tableOperation{
-    
-}
-
 .tooltip-container {
     position: relative;
 }

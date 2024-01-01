@@ -3,14 +3,16 @@ import UserContent from "../userContent/UserContent";
 import "./UserInfo.css";
 import { Formik, Form, Field } from "formik";
 import { Helmet } from "react-helmet";
-import { FaKey } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../Validations/register";
 import Loading from "./../../loading/Loading";
 import { useTranslation } from "react-i18next";
 import UserContext from "./../../../Context/UserContext";
+import { FaUser } from "react-icons/fa";
+import { FaMobileAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaInfo } from "react-icons/fa";
 
-import React from "react";
 import ImageUploader from "react-images-upload";
 
 export default function UserInfo() {
@@ -46,7 +48,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">نام و تخلص</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="inputIcon" />
+                    <FaUser className="inputIcon" />
                     <Field
                       type="text"
                       name="name"
@@ -80,7 +82,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">موبایل</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="inputIcon" />
+                    <FaMobileAlt className="inputIcon" />
                     <Field
                       type="number"
                       name="mobile"
@@ -97,7 +99,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">آدرس</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="inputIcon" />
+                    <FaLocationDot className="inputIcon" />
                     <Field
                       type="text"
                       name="address"
@@ -111,7 +113,7 @@ export default function UserInfo() {
                 <div className="inputParent">
                   <div className="inputTitle">معرفی کوتاه</div>
                   <div className="backInput d-flex-align">
-                    <MdEmail className="inputIcon" />
+                    <FaInfo className="inputIcon" />
                     <Field
                       type="text"
                       name="shortDesc"
@@ -125,23 +127,23 @@ export default function UserInfo() {
 
               <div className="Profiletitle">اضافه کردن عکس</div>
               <div className="UserProfile">
-              <ImageUploader
-                    className="tt"
-                    withIcon={true}
-                    withPreview={true}
-                    buttonText="انتخاب عکس "
-                    imgExtension={[".jpg", ".gif", ".png", ".gif"]}
-                    maxFileSize={1000000}
-                    maxNumber="1"
-                    onChange={(e) => {
-                      console.log(e);
-                      setProfileImage(e);
-                    }}
-                    type="file"
-                    label="حجم عکس از 1 ام بی نباید بیشتر باشد. فرمت عکس ( jpg - png - gif )"
-                    fileSizeError="حجم عکس بیش از حد مجاز است"
-                    fileTypeError="انتخاب فرمت اشتباه"
-                  />
+                <ImageUploader
+                  className="tt"
+                  withIcon={true}
+                  withPreview={true}
+                  buttonText="انتخاب عکس "
+                  imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+                  maxFileSize={1000000}
+                  maxNumber="1"
+                  onChange={(e) => {
+                    console.log(e);
+                    setProfileImage(e);
+                  }}
+                  type="file"
+                  label="حجم عکس از 1 ام بی نباید بیشتر باشد. فرمت عکس ( jpg - png - gif )"
+                  fileSizeError="حجم عکس بیش از حد مجاز است"
+                  fileTypeError="انتخاب فرمت اشتباه"
+                />
               </div>
 
               {!loading && (
