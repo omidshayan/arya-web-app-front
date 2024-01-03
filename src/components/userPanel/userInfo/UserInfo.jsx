@@ -108,6 +108,7 @@ export default function UserInfo() {
                       placeholder={t("emailOrMobileP")}
                     />
                   </div>
+                  <span className="msgError"></span>
                 </div>
 
                 <div className="inputParent">
@@ -122,7 +123,9 @@ export default function UserInfo() {
                       placeholder={t("emailOrMobileP")}
                     />
                   </div>
+                  <span className="msgError"></span>
                 </div>
+
               </div>
 
               <div className="Profiletitle">اضافه کردن عکس</div>

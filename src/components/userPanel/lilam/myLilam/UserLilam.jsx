@@ -2,7 +2,7 @@ import UserContent from './../../userContent/UserContent';
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
-
+import './Table.css';
 
 export default function UserLilam() {
   return (
