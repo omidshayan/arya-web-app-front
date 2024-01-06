@@ -2,167 +2,159 @@ import { BiCategory } from "react-icons/bi";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { FaMobileScreenButton } from "react-icons/fa6";
 import { getApi } from "../../../../services/Api/api";
-import {  useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
 
-export default function CategoriesItems() {
-  const [back, setBack] = useState(false);
-
+export default function CategoriesItems(props) {
   const [loading, setLoading] = useState(false);
-
-  const [showCategories, setShowCategories] = useState(true);
-
-
-
-  const [maincategories, setMainCegories] = useState([]);
   const [categories, setCategories] = useState([]);
-  
-  const [showPrentsCategories, setShowPrentsCegories] = useState(true);
-
-  const [Children, setChildren] = useState([]);
-
-  const [selectedCategory, setSelectedCategory] = useState([]);
-
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showingCategories, setShowingCategories] = useState([]);
   // Get All Main categories
   const getAllMainCtegories = async () => {
     setLoading(true);
-    setShowPrentsCegories(true);
-    setChildren([]);
-    setBack(false);
     const path = "/categories/withoutPaginate";
     try {
       const { data } = await getApi(path, { mainCategories: 1 });
-      setLoading(false);
-      setMainCegories(data.data);
+
+      const categoriesData = data.data;
+      setCategories(categoriesData);
+      const ss = categoriesData.map((item) => {
+        const itemId = 1;
+        return {
+          ...item,
+          itemId,
+        };
+      });
+
+      setShowingCategories(ss);
     } catch (error) {
-      // console.log(error);
+      console.log(error);
+    } finally {
       setLoading(false);
     }
   };
 
   // Get Children Categories
-  const getCategoryChildren = async (category) => {
-    console.log('main line 43',category)
-    setSelectedCategory(category);
-    console.log(selectedCategory);
-    setLoading(true);
-    setBack(true);
-    const path = `/categories/${category.id}`;
-    try {
-      const { data } = await getApi(path);
-      setShowPrentsCegories(false);
-      setChildren(data.data.children);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
+  const getCategoryChildren = async (category) => { 
+    const categoryChildren = category.children;
+    if (!categoryChildren?.length) {
+      setSelectedCategory(category);
+      return;
     }
+    setCategories(categoryChildren);
+    const newShowingCategories = categoryChildren.map((item) => {
+      const itemId = showingCategories.reverse()[0]?.itemId + 1 || 1;
+      return {
+        ...item,
+        itemId,
+      };
+    });
+    setShowingCategories([...showingCategories, ...newShowingCategories]);
   };
 
+  const handleBack = () => {
+    const showingCategoriesCopy = [...showingCategories];
+    const lastItemId = showingCategoriesCopy.reverse()[0]?.itemId;
+    if (lastItemId === 1) {
+      setCategories([]);
+      return;
+    }
+    const itemIdForLastCategoryVisibiled = lastItemId - 1;
+    const lastShowsCat = showingCategoriesCopy.filter(
+      (item) => item.itemId === itemIdForLastCategoryVisibiled
+    );
 
-  const showMainCategories = () => {
-    setShowCategories(false);
+    
+    const newShowingCategories = showingCategoriesCopy.filter(
+      (item) => item.itemId === lastItemId
+    );
+    setShowingCategories(newShowingCategories);
+    setCategories(lastShowsCat.reverse());
   };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchCategories = async () => {
+      if (props.searchInput) {
+        setLoading(true);
+        try {
+          const { data } = await getApi(
+            "/categories/getCategoriesWithoutChildren",
+            { name: props.searchInput }
+          );
+          if (isMounted) {
+            setCategories(data.data);
+          }
+        } catch (error) {
+          console.log(error); 
+        } finally {
+          if (isMounted) {
+            setLoading(false);
+          }
+        }
+      }
+    };
+
+    fetchCategories();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [props.searchInput]);
 
   return (
     <>
-      {showCategories && (
-        <div className="showCatesLilam color" onClick={showMainCategories}>
+      {!categories.length ? (
+        <div className="showCatesLilam color">
           <div className="color d-flex-all" onClick={getAllMainCtegories}>
             <BiCategory className="m-l10" /> نمایش همه دسته بندی ها
           </div>
           <IoIosArrowBack />
         </div>
-      )}
+      ) : null}
 
-      {!showCategories && (
+      {categories.length ? (
         <>
           {/* loading */}
-          {loading && (
+          {loading ? (
             <div className="loadinAuth">
               <Loading />
             </div>
-          )}
+          ) : null}
 
           {/* Main categories */}
-          {showPrentsCategories &&
-            maincategories.map((category) => {
-              return (
-                <>
-                  <div className="showCatesLilam color">
-                    <div className="color d-flex-all">
-                      <FaMobileScreenButton className="m-l10" />
-                      <span onClick={() => getCategoryChildren(category)}>
-                        {category.name}
-                      </span>
-                    </div>
-                    <IoIosArrowBack />
-                  </div>
-                </>
-              );
-            })}
-
-          {/* Show Children Categories */}
-          {back && (
-            <div className="showCatesLilam color" onClick={getAllMainCtegories}>
-              <div className="sub-color d-flex-all">
-                <IoIosArrowForward className="m-l10" /> برگشت
-              </div>
-            </div>
-          )}
-          {Children.map((category) => {
+          {/* {showPrentsCategories? */}
+          {categories.map((category) => {
             return (
               <>
-                <div className="showCatesLilam color">
+                <div
+                  key={category._id}
+                  className="showCatesLilam color"
+                  onClick={() => getCategoryChildren(category)}
+                >
                   <div className="color d-flex-all">
                     <FaMobileScreenButton className="m-l10" />
-                    <span onClick={() => getCategoryChildren(category)}>
-                      {category.name}
-                    </span>
+                    <span>{category.name}</span>
                   </div>
                   <IoIosArrowBack />
                 </div>
               </>
             );
           })}
+          {/* :null} */}
 
-          {/* <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <FaMobileScreenButton className="m-l10" /> موبایل و تبلت
+          {/* Show Children Categories */}
+          {categories.length ? (
+            <div className="showCatesLilam color" onClick={handleBack}>
+              <div className="sub-color d-flex-all">
+                <IoIosArrowForward className="m-l10" /> برگشت
+              </div>
             </div>
-            <IoIosArrowBack />
-          </div>
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <BiCategory className="m-l10" /> کامپیوتر
-            </div>
-            <IoIosArrowBack />
-          </div>
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <BiSolidCameraHome className="m-l10" /> لوازم خانه
-            </div>
-            <IoIosArrowBack />
-          </div>
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <FaCar className="m-l10" /> وسیله نقلیه
-            </div>
-            <IoIosArrowBack />
-          </div>
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <TbBuildingEstate className="m-l10" /> خانه و زمین
-            </div>
-            <IoIosArrowBack />
-          </div>
-          <div className="showCatesLilam color">
-            <div className="color d-flex-all">
-              <MdOutlineArticle className="m-l10" /> لوازم التحریر
-            </div>
-            <IoIosArrowBack />
-          </div> */}
+          ) : null}
         </>
-      )}
+      ) : null}
     </>
   );
 }
