@@ -19,8 +19,9 @@ export default function CategoriesItems(props) {
 
       const categoriesData = data.data;
       setCategories(categoriesData);
+
+      const itemId = 1;
       const ss = categoriesData.map((item) => {
-        const itemId = 1;
         return {
           ...item,
           itemId,
@@ -36,15 +37,20 @@ export default function CategoriesItems(props) {
   };
 
   // Get Children Categories
-  const getCategoryChildren = async (category) => { 
-    const categoryChildren = category.children;
+  const getCategoryChildren = async (category) => {
+    const { data } = await getApi(`/categories/${category._id}`);
+    const categoryChildren = data?.data?.children;
+    
     if (!categoryChildren?.length) {
       setSelectedCategory(category);
+      //modal close
       return;
     }
+
     setCategories(categoryChildren);
+    const itemId = showingCategories.reverse()[0]?.itemId + 1;
+
     const newShowingCategories = categoryChildren.map((item) => {
-      const itemId = showingCategories.reverse()[0]?.itemId + 1 || 1;
       return {
         ...item,
         itemId,
@@ -65,7 +71,6 @@ export default function CategoriesItems(props) {
       (item) => item.itemId === itemIdForLastCategoryVisibiled
     );
 
-    
     const newShowingCategories = showingCategoriesCopy.filter(
       (item) => item.itemId === lastItemId
     );
@@ -88,7 +93,7 @@ export default function CategoriesItems(props) {
             setCategories(data.data);
           }
         } catch (error) {
-          console.log(error); 
+          console.log(error);
         } finally {
           if (isMounted) {
             setLoading(false);
@@ -138,7 +143,7 @@ export default function CategoriesItems(props) {
                     <FaMobileScreenButton className="m-l10" />
                     <span>{category.name}</span>
                   </div>
-                  <IoIosArrowBack />
+                  {category.children ? <IoIosArrowBack /> : null}
                 </div>
               </>
             );
