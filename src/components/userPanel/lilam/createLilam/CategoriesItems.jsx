@@ -111,6 +111,7 @@ export default function CategoriesItems(props) {
 
   return (
     <>
+
       {!categories.length ? (
         <div className="showCatesLilam color">
           <div className="color d-flex-all" onClick={getAllMainCtegories}>

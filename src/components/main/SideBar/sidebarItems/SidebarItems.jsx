@@ -48,13 +48,6 @@ export default function UserSidebar() {
               لیلام های من
             </Link>
 
-            <Link
-              to={"/deactiveLilam"}
-              className="color accordionLink p-t6 m-r25 font-size"
-            >
-              لیلام های غیرفعال
-            </Link>
-
             <Link to={"/"} className="color accordionLink p-t6"></Link>
           </BaseAccordion>
 
