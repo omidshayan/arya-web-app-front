@@ -14,7 +14,7 @@ import CategoriesItems from "./CategoriesItems";
 export default function CreateLilam() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
-
+  const [searchInput, setSearchInput] = useState(null);
   const [ProfileImage, setProfileImage] = useState();
 
   return (
@@ -47,12 +47,14 @@ export default function CreateLilam() {
                           name="cateSearch"
                           className="loginInput"
                           placeholder="نام دسته بندی خود را وارد کنید"
+                          onChange={(e)=>setSearchInput(e.target.value)}
+                          value={searchInput}
                         />
                       </div>
                     </div>
 
                     {/* categories items */}
-                    <CategoriesItems />
+                    <CategoriesItems searchInput={searchInput}/>
                     
                   </Modal>
                 </div>
