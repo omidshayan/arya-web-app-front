@@ -9,6 +9,8 @@ export default function CategoriesItems() {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [showingCategories, setShowingCategories] = useState([]);
+
+
   // get all main categories
   const getAllMainCategories = async () => {
     setLoading(true);
@@ -37,12 +39,20 @@ export default function CategoriesItems() {
 
   // get categories children
   const getCategoryChildren = async (item) =>{
-
     const {data} = await getApi(`/categories/${item._id}`);
     const categoryChildren = data?.data?.children;
-
-
     setCategories(categoryChildren)
+
+    const itemId = showingCategories.reverse()[0]?.itemId + 1;
+    const newShowingCategories = categoryChildren.map((item) => {
+      return {
+        ...item,
+        itemId,
+      };
+    });
+    setShowingCategories([...showingCategories, ...newShowingCategories]);
+
+    console.log(showingCategories)
     
   }
 
