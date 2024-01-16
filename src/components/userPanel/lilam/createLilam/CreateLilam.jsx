@@ -17,6 +17,9 @@ export default function CreateLilam() {
   const [searchInput, setSearchInput] = useState(null);
   const [ProfileImage, setProfileImage] = useState();
 
+  // handle modal
+  const [modal, setModal] = useState(true);
+  
   return (
     <>
       <UserContent title={"ثبت کالای لیلامی"}>
@@ -37,7 +40,9 @@ export default function CreateLilam() {
           >
             {({ touched, errors }) => (
               <Form>
-                <div className="d-flex-justify">
+                {
+                  modal && 
+                  <div className="d-flex-justify">
                   <Modal title="انتخاب دسته بندی" modalName="انتخاب دسته بندی">
                     <div className="inputParent">
                       <div className="backInputCate d-flex-align">
@@ -46,7 +51,7 @@ export default function CreateLilam() {
                           type="text"
                           name="cateSearch"
                           className="loginInput"
-                          placeholder="نام دسته بندی خود را وارد کنید"
+                          placeholder="جستجوی دسته بندی..."
                           onChange={(e)=>setSearchInput(e.target.value)}
                           value={searchInput}
                         />
@@ -55,9 +60,11 @@ export default function CreateLilam() {
 
                     {/* categories items */}
                     <CategoriesItems searchInput={searchInput}/>
-                    
                   </Modal>
                 </div>
+                  
+                }
+
                 <div className="userInfo">
                   <div className="inputParent">
                     <div className="inputTitle">نام کالا</div>

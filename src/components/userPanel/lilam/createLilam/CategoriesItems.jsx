@@ -4,13 +4,13 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import { getApi } from "../../../../services/Api/api";
 import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
+import PropTypes from 'prop-types';
 
-export default function CategoriesItems(props) {
+export default function CategoriesItems({searchInput}) {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showingCategories, setShowingCategories] = useState([]);
-
 
   // Get All Main categories
   const getAllMainCtegories = async () => {
@@ -40,7 +40,8 @@ export default function CategoriesItems(props) {
     const { data } = await getApi(`/categories/${category._id}`);
     const categoryChildren = data?.data?.children;
     if (!categoryChildren?.length) {
-      setSelectedCategory(category);
+      setSelectedCategory(category.name);
+      
       //modal close
       return;
     }
@@ -80,12 +81,12 @@ export default function CategoriesItems(props) {
     let isMounted = true;
 
     const fetchCategories = async () => {
-      if (props.searchInput) {
+      if (searchInput) {
         setLoading(true);
         try {
           const { data } = await getApi(
             "/categories/getCategoriesWithoutChildren",
-            { name: props.searchInput }
+            { name: searchInput }
           );
           if (isMounted) {
             setCategories(data.data);
@@ -105,7 +106,7 @@ export default function CategoriesItems(props) {
     return () => {
       isMounted = false;
     };
-  }, [props.searchInput]);
+  }, [searchInput]);
 
   return (
     <>
@@ -162,3 +163,6 @@ export default function CategoriesItems(props) {
     </>
   );
 }
+CategoriesItems.propTypes = {
+  searchInput: PropTypes.string,
+};
