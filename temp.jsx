@@ -10,6 +10,8 @@ export default function CategoriesItems(props) {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showingCategories, setShowingCategories] = useState([]);
+
+
   // Get All Main categories
   const getAllMainCtegories = async () => {
     setLoading(true);
@@ -79,6 +81,7 @@ export default function CategoriesItems(props) {
     setCategories(lastShowsCat.reverse());
   };
 
+  
   useEffect(() => {
     let isMounted = true;
 
