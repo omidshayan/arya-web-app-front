@@ -10,12 +10,23 @@ import { CiSearch } from "react-icons/ci";
 import ImageUploader from "react-images-upload";
 import "./CreateLilam.css";
 import CategoriesItems from "./CategoriesItems";
+import { useModalState } from './../../../main/modal/ModalState';
+
 
 export default function CreateLilam() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [searchInput, setSearchInput] = useState(null);
   const [ProfileImage, setProfileImage] = useState();
+
+  const { open, setOpen } = useModalState(false);
+
+  const handleModalClose = () => {
+    console.log('Modal closed');
+    setOpen(false);
+  };
+
+
 
   // handle modal
   const [modal, setModal] = useState(true);
@@ -59,7 +70,7 @@ export default function CreateLilam() {
                     </div>
 
                     {/* categories items */}
-                    <CategoriesItems searchInput={searchInput}/>
+                    <CategoriesItems searchInput={searchInput} onModalClose={handleModalClose}/>
                   </Modal>
                 </div>
                   

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
 import PropTypes from 'prop-types';
 
-export default function CategoriesItems({searchInput}) {
+export default function CategoriesItems({searchInput, onModalClose}) {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -56,7 +56,9 @@ export default function CategoriesItems({searchInput}) {
     setShowingCategories([...showingCategories, ...newShowingCategories]);
   };
 
-  
+  const back = () =>{
+    onModalClose(false)
+  }
   const handleBack = () => {
     const showingCategoriesCopy = [...showingCategories];
     const lastItemId = showingCategoriesCopy.reverse()[0]?.itemId;
@@ -153,7 +155,7 @@ export default function CategoriesItems({searchInput}) {
           {/* Show Children Categories */}
           {categories.length ? (
             <div className="showCatesLilam color" onClick={handleBack}>
-              <div className="sub-color d-flex-all">
+              <div className="sub-color d-flex-all" onClick={back}>
                 <IoIosArrowForward className="m-l10" /> برگشت
               </div>
             </div>
