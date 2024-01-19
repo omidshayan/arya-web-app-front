@@ -10,8 +10,7 @@ import { CiSearch } from "react-icons/ci";
 import ImageUploader from "react-images-upload";
 import "./CreateLilam.css";
 import CategoriesItems from "./CategoriesItems";
-import { useModalState } from './../../../main/modal/ModalState';
-
+import { useModalState } from "./../../../main/modal/ModalState";
 
 export default function CreateLilam() {
   const { t } = useTranslation();
@@ -22,15 +21,13 @@ export default function CreateLilam() {
   const { open, setOpen } = useModalState(false);
 
   const handleModalClose = () => {
-    console.log('Modal closed');
+    console.log("Modal closed");
     setOpen(false);
   };
 
-
-
   // handle modal
   const [modal, setModal] = useState(true);
-  
+
   return (
     <>
       <UserContent title={"ثبت کالای لیلامی"}>
@@ -51,30 +48,34 @@ export default function CreateLilam() {
           >
             {({ touched, errors }) => (
               <Form>
-                {
-                  modal && 
+                {modal && (
                   <div className="d-flex-justify">
-                  <Modal title="انتخاب دسته بندی" modalName="انتخاب دسته بندی">
-                    <div className="inputParent">
-                      <div className="backInputCate d-flex-align">
-                        <CiSearch className="inputIcon" />
-                        <Field
-                          type="text"
-                          name="cateSearch"
-                          className="loginInput"
-                          placeholder="جستجوی دسته بندی..."
-                          onChange={(e)=>setSearchInput(e.target.value)}
-                          value={searchInput}
-                        />
+                    <Modal
+                      title="انتخاب دسته بندی"
+                      modalName="انتخاب دسته بندی"
+                    >
+                      <div className="inputParent">
+                        <div className="backInputCate d-flex-align">
+                          <CiSearch className="inputIcon" />
+                          <Field
+                            type="text"
+                            name="cateSearch"
+                            className="loginInput"
+                            placeholder="جستجوی دسته بندی..."
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            value={searchInput}
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    {/* categories items */}
-                    <CategoriesItems searchInput={searchInput} onModalClose={handleModalClose}/>
-                  </Modal>
-                </div>
-                  
-                }
+                      {/* categories items */}
+                      <CategoriesItems
+                        searchInput={searchInput}
+                        onModalClose={handleModalClose}
+                      />
+                    </Modal>
+                  </div>
+                )}
 
                 <div className="userInfo">
                   <div className="inputParent">

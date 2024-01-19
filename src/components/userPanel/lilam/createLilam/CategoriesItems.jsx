@@ -4,9 +4,9 @@ import { FaMobileScreenButton } from "react-icons/fa6";
 import { getApi } from "../../../../services/Api/api";
 import { useEffect, useState } from "react";
 import Loading from "../../../loading/Loading";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-export default function CategoriesItems({searchInput, onModalClose}) {
+export default function CategoriesItems({ searchInput, onModalClose }) {
   const [loading, setLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -41,7 +41,7 @@ export default function CategoriesItems({searchInput, onModalClose}) {
     const categoryChildren = data?.data?.children;
     if (!categoryChildren?.length) {
       setSelectedCategory(category.name);
-      
+
       //modal close
       return;
     }
@@ -56,9 +56,9 @@ export default function CategoriesItems({searchInput, onModalClose}) {
     setShowingCategories([...showingCategories, ...newShowingCategories]);
   };
 
-  const back = () =>{
-    onModalClose(false)
-  }
+  const back = () => {
+    onModalClose(false);
+  };
   const handleBack = () => {
     const showingCategoriesCopy = [...showingCategories];
     const lastItemId = showingCategoriesCopy.reverse()[0]?.itemId;
@@ -78,7 +78,6 @@ export default function CategoriesItems({searchInput, onModalClose}) {
     setCategories(lastShowsCat.reverse());
   };
 
-  
   useEffect(() => {
     let isMounted = true;
 
@@ -112,7 +111,6 @@ export default function CategoriesItems({searchInput, onModalClose}) {
 
   return (
     <>
-
       {!categories.length ? (
         <div className="showCatesLilam color">
           <div className="color d-flex-all" onClick={getAllMainCtegories}>
