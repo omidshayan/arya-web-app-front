@@ -10,7 +10,6 @@ import { CiSearch } from "react-icons/ci";
 import ImageUploader from "react-images-upload";
 import "./CreateLilam.css";
 import CategoriesItems from "./CategoriesItems";
-import { useModalState } from "./../../../main/modal/ModalState";
 
 export default function CreateLilam() {
   const { t } = useTranslation();
@@ -18,15 +17,8 @@ export default function CreateLilam() {
   const [searchInput, setSearchInput] = useState(null);
   const [ProfileImage, setProfileImage] = useState();
 
-  const { open, setOpen } = useModalState(false);
 
-  const handleModalClose = () => {
-    console.log("Modal closed");
-    setOpen(false);
-  };
 
-  // handle modal
-  const [modal, setModal] = useState(true);
 
   return (
     <>
@@ -48,7 +40,7 @@ export default function CreateLilam() {
           >
             {({ touched, errors }) => (
               <Form>
-                {modal && (
+                
                   <div className="d-flex-justify">
                     <Modal
                       title="انتخاب دسته بندی"
@@ -71,12 +63,11 @@ export default function CreateLilam() {
                       {/* categories items */}
                       <CategoriesItems
                         searchInput={searchInput}
-                        onModalClose={handleModalClose}
+                        
                       />
                     </Modal>
                   </div>
-                )}
-
+               
                 <div className="userInfo">
                   <div className="inputParent">
                     <div className="inputTitle">نام کالا</div>
