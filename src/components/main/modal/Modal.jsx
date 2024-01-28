@@ -1,20 +1,18 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import './Modal.css';
-
-
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Slide from "@mui/material/Slide";
+import "./Modal.css";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({modalName, title,children}) {
+export default function AlertDialogSlide({ modalName, title, children }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -27,10 +25,14 @@ export default function AlertDialogSlide({modalName, title,children}) {
 
   return (
     <React.Fragment>
-      <Button className='cateLilam' variant="outlined" onClick={handleClickOpen}>
+      <Button
+        className="cateLilam"
+        variant="outlined"
+        onClick={handleClickOpen}
+      >
         {modalName}
       </Button>
-      <Dialog 
+      <Dialog
         open={open}
         TransitionComponent={Transition}
         keepMounted

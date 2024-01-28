@@ -59,6 +59,7 @@ export default function CategoriesItems({ searchInput, onModalClose }) {
   const back = () => {
     onModalClose(false);
   };
+  
   const handleBack = () => {
     const showingCategoriesCopy = [...showingCategories];
     const lastItemId = showingCategoriesCopy.reverse()[0]?.itemId;
