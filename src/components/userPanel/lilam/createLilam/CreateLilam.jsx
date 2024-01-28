@@ -5,7 +5,6 @@ import { MdEmail } from "react-icons/md";
 import { userInfo } from "./../../../../Validations/register";
 import Loading from "./../../../loading/Loading";
 import { useTranslation } from "react-i18next";
-import Modal from "./../../../main/modal/Modal";
 import { CiSearch } from "react-icons/ci";
 import ImageUploader from "react-images-upload";
 import "./CreateLilam.css";
@@ -49,7 +48,6 @@ export default function CreateLilam() {
   const handleClickOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -84,8 +82,7 @@ export default function CreateLilam() {
     const categoryChildren = data?.data?.children;
     if (!categoryChildren?.length) {
       setSelectedCategory(category.name);
-
-      //modal close
+      setOpen(false);
       return;
     }
     setCategories(categoryChildren);
@@ -97,10 +94,6 @@ export default function CreateLilam() {
       };
     });
     setShowingCategories([...showingCategories, ...newShowingCategories]);
-  };
-
-  const back = () => {
-    onModalClose(false);
   };
 
   const handleBack = () => {
@@ -156,7 +149,6 @@ export default function CreateLilam() {
   return (
     <>
       <UserContent title={"ثبت کالای لیلامی"}>
-        <div>test</div>
         <div className="createLilam">
           <Formik
             initialValues={{
@@ -180,9 +172,9 @@ export default function CreateLilam() {
                     variant="outlined"
                     onClick={handleClickOpen}
                   >
-                    انتخاب دسته بندی
+                    {selectedCategory ? <div className="selected">{selectedCategory}</div> : "انتخاب دسته بندی"}
                   </Button>
-                  
+
                   <Dialog
                     open={open}
                     TransitionComponent={Transition}
@@ -193,7 +185,21 @@ export default function CreateLilam() {
                     <DialogTitle className="modalStyle">
                       انتخاب دسته بندی
                     </DialogTitle>
+
                     <DialogContent className="modalStyle">
+                      <div className="inputParent">
+                        <div className="backInputCate d-flex-align">
+                          <CiSearch className="inputIcon" />
+                          <Field
+                            type="text"
+                            name="cateSearch"
+                            className="loginInput"
+                            placeholder="جستجوی دسته بندی..."
+                            onChange={(e) => setSearchInput(e.target.value)}
+                            value={searchInput}
+                          />
+                        </div>
+                      </div>
                       <DialogContentText id="alert-dialog-slide-description">
                         {!categories.length ? (
                           <div className="showCatesLilam color">
@@ -248,10 +254,7 @@ export default function CreateLilam() {
                                 className="showCatesLilam color"
                                 onClick={handleBack}
                               >
-                                <div
-                                  className="sub-color d-flex-all"
-                                  onClick={back}
-                                >
+                                <div className="sub-color d-flex-all">
                                   <IoIosArrowForward className="m-l10" /> برگشت
                                 </div>
                               </div>
