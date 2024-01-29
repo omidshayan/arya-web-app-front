@@ -44,7 +44,7 @@ export default function CreateLilam() {
 
   // open modal
   const [open, setOpen] = React.useState(false);
-
+  
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -53,6 +53,8 @@ export default function CreateLilam() {
   };
 
   // modal items
+
+
   // Get All Main categories
   const getAllMainCtegories = async () => {
     setLoading(true);
@@ -117,7 +119,6 @@ export default function CreateLilam() {
 
   useEffect(() => {
     let isMounted = true;
-
     const fetchCategories = async () => {
       if (searchInput) {
         setLoading(true);
@@ -172,7 +173,11 @@ export default function CreateLilam() {
                     variant="outlined"
                     onClick={handleClickOpen}
                   >
-                    {selectedCategory ? <div className="selected">{selectedCategory}</div> : "انتخاب دسته بندی"}
+                    {selectedCategory ? (
+                      <div className="selected">{selectedCategory}</div>
+                    ) : (
+                      "انتخاب دسته بندی"
+                    )}
                   </Button>
 
                   <Dialog
@@ -239,9 +244,9 @@ export default function CreateLilam() {
                                       <FaMobileScreenButton className="m-l10" />
                                       <span>{category.name}</span>
                                     </div>
-                                    {category.children ? (
+                                    {category.children && (
                                       <IoIosArrowBack />
-                                    ) : null}
+                                    ) }
                                   </div>
                                 </>
                               );
