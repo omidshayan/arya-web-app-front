@@ -1,9 +1,6 @@
 @font-face {
   font-family: 'vazir';
   src: url('fonts//Vazir.ttf');
-  src: url('fonts//vazir.eot');
-  src: url('fonts//vazir.woff');
-  src: url('fonts//vazir.woff2');
 }
 :root{
   --main-color: #111827;

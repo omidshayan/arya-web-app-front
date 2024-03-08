@@ -26,7 +26,7 @@ export default function Asynchronous() {
     }
 
     (async () => {
-      await sleep(1e3); // For demo purposes.
+      await sleep(1e3);
 
       if (active) {
         setOptions([...topFilms]);
